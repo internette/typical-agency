@@ -14,7 +14,7 @@ var Images = require('../models/image');
 var Bio = require('../models/bio');
 var Client = require('../models/client');
 
-mongoose.connect('[MONGO DB URL WHICH MAY LOOK SOMETHING LIKE THIS] mongodb://[USERNAME]:[PASSWORD].mlab.com:[RANDOMLY GENERATED NUMBER]/[DATABASE NAME]'); // connect to our database
+mongoose.connect('mongodb://user:riWf6RgXh1jU@ds011258.mlab.com:11258/generic-agency'); // connect to our database
 //
 
 // configure app to use bodyParser()
