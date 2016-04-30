@@ -44,7 +44,7 @@ router.get('/', function(req, res) {
 // more routes for our API will happen here
 // on routes that end in /words
 // ----------------------------------------------------
-router.route('/words')
+router.route('/api/words')
     // retrieve words
     .get(function(req, res) {
         Word.find(function(err, words) {
@@ -63,7 +63,7 @@ router.route('/colors')
       res.json(colors);
     });
   });
-  router.route('/images')
+  router.route('/api/images')
     .get(function(req,res){
       Images.find(function(err, images) {
         if (err)
@@ -72,7 +72,7 @@ router.route('/colors')
         res.json(images);
       });
     });
-    router.route('/bios')
+    router.route('/api/bios')
       .get(function(req,res){
         Bio.find(function(err, bios) {
           if (err)
@@ -81,7 +81,7 @@ router.route('/colors')
           res.json(bios);
         });
       });
-      router.route('/clients')
+      router.route('/api/clients')
         .get(function(req,res){
           Client.find(function(err,clients) {
             if (err)
@@ -92,7 +92,7 @@ router.route('/colors')
         });
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
-app.use('/api', router);
+app.use('/', router);
 
 // START THE SERVER
 // =============================================================================
