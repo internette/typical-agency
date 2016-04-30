@@ -14,7 +14,7 @@ var Images = require('../models/image');
 var Bio = require('../models/bio');
 var Client = require('../models/client');
 
-mongoose.connect('mongodb://twaffles:sakura@ec2-54-174-132-191.compute-1.amazonaws.com:27017/dummyDB'); // connect to our database
+mongoose.connect('mongodb://twaffles:sakura@ec2-52-73-225-190.compute-1.amazonaws.com:27017/dummyDB'); // connect to our database
 //
 
 // configure app to use bodyParser()
