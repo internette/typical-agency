@@ -7,12 +7,13 @@
 var express    = require('express');        // call express
 var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
+var path = require('path');
 var mongoose = require('mongoose');
-var Word = require('../models/word');
-var Color = require('../models/color');
-var Images = require('../models/image');
-var Bio = require('../models/bio');
-var Client = require('../models/client');
+var Word = require('../api/models/word');
+var Color = require('../api/models/color');
+var Images = require('../api/models/image');
+var Bio = require('../api/models/bio');
+var Client = require('../api/models/client');
 
 mongoose.connect('mongodb://twaffles:sakura@ec2-52-73-225-190.compute-1.amazonaws.com:27017/dummyDB'); // connect to our database
 //
@@ -38,7 +39,10 @@ router.use(function(req, res, next) {
 
 // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
 router.get('/', function(req, res) {
-    express.static(__dirname+'/../');
+    res.sendFile(path.join(__dirname + '/../index.html'));
+});
+router.get('/api', function(req, res) {
+    res.sendFile(path.join(__dirname + '/../api/index.html'));
 });
 
 // more routes for our API will happen here
