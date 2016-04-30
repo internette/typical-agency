@@ -1,0 +1,47 @@
+{
+    "_id": {
+        "$oid": "571dea69fca0fd5e9f7515a1"
+    },
+    "photos": {
+        "background": [
+            "https://c2.staticflickr.com/9/8074/8408215473_52e148ac01_h.jpg",
+            "https://pixabay.com/static/uploads/photo/2015/01/08/18/12/accessories-593298_960_720.jpg",
+            "https://static.pexels.com/photos/7070/space-desk-workspace-coworking.jpg",
+            "https://static.pexels.com/photos/7097/people-coffee-tea-meeting.jpg",
+            "https://static.pexels.com/photos/425/apple-iphone-desk-office.jpg",
+            "https://static.pexels.com/photos/26806/pexels-photo.jpg",
+            "https://static.pexels.com/photos/4428/office-table-home-room.jpeg",
+            "https://static.pexels.com/photos/7071/space-desk-office-workspace.jpg",
+            "https://static.pexels.com/photos/6372/coffee-smartphone-desk-pen.jpg",
+            "https://static.pexels.com/photos/62689/pexels-photo-62689.jpeg"
+        ],
+        "projects": {
+            "web": [
+                "https://static.pexels.com/photos/41227/pexels-photo-41227.jpeg",
+                "https://static.pexels.com/photos/38556/office-notes-notepad-entrepreneur-38556.jpeg",
+                "https://static.pexels.com/photos/6351/smartphone-desk-laptop-technology.jpg",
+                "https://static.pexels.com/photos/6599/coffee-apple-iphone-desk.jpg",
+                "https://static.pexels.com/photos/6471/woman-hand-smartphone-desk.jpg",
+                "https://static.pexels.com/photos/6355/desk-laptop-working-technology.jpg",
+                "https://static.pexels.com/photos/35550/ipad-tablet-technology-touch.jpg",
+                "https://static.pexels.com/photos/156/man-person-apple-iphone.jpg"
+            ],
+            "brand": [
+                "https://static.pexels.com/photos/7092/desk-office-hero-workspace.jpg",
+                "https://static.pexels.com/photos/53874/pexels-photo-53874.jpeg",
+                "https://static.pexels.com/photos/16510/wood-coffee-camera-desk-16510.jpg",
+                "https://static.pexels.com/photos/680/black-and-white-apple-desk-macbook-pro.jpg",
+                "https://static.pexels.com/photos/6224/hands-people-woman-working.jpg",
+                "https://static.pexels.com/photos/6440/magazines-desk-work-workspace.jpg",
+                "https://static.pexels.com/photos/6231/marketing-color-colors-wheel.jpg"
+            ],
+            "marketing": [
+                "https://static.pexels.com/photos/54257/pexels-photo-54257.jpeg",
+                "https://static.pexels.com/photos/5485/handwritten-italian-marketing-menu.jpg",
+                "https://static.pexels.com/photos/6229/marketing-board-strategy.jpg",
+                "https://static.pexels.com/photos/1300/city-marketing-lights-night.jpg",
+                "https://static.pexels.com/photos/154/people-apple-iphone-writing.jpg"
+            ]
+        }
+    }
+}

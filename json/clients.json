@@ -1,0 +1,182 @@
+{
+    "_id": {
+        "$oid": "571df8ecfca0fd5e9f75196a"
+    },
+    "clients": [
+        {
+            "company": "3M",
+            "logo": "3M.jpg",
+            "website": "http://www.3m.com/"
+        },
+        {
+            "company": "Adidas",
+            "logo": "adidas.png",
+            "website": "http://www.adidas.com/"
+        },
+        {
+            "company": "Amazon",
+            "logo": "amazon.jpg",
+            "website": "http://www.amazon.com/"
+        },
+        {
+            "company": "American express",
+            "logo": "Amex.png",
+            "website": "https://www.americanexpress.com/"
+        },
+        {
+            "company": "Apple",
+            "logo": "apple.png",
+            "website": "https://www.apple.com/"
+        },
+        {
+            "company": "Coca-Cola",
+            "logo": "Coca-Cola.jpg",
+            "website": "http://www.coca-cola.com/global/glp.html"
+        },
+        {
+            "company": "Dell",
+            "logo": "dell.png",
+            "website": "http://www.dell.com/"
+        },
+        {
+            "company": "Facebook",
+            "logo": "facebook.png",
+            "website": "http://www.facebook.com/"
+        },
+        {
+            "company": "FedEx",
+            "logo": "fedex.jpg",
+            "website": "http://www.fedex.com/"
+        },
+        {
+            "company": "Ford",
+            "logo": "ford.jpg",
+            "website": "http://www.ford.com/"
+        },
+        {
+            "company": "GE",
+            "logo": "GE.png",
+            "website": "http://www.ge.com/"
+        },
+        {
+            "company": "Google",
+            "logo": "google.png",
+            "website": "http://www.google.com/"
+        },
+        {
+            "company": "HP",
+            "logo": "hp.png",
+            "website": "http://www.hp.com/"
+        },
+        {
+            "company": "IAC",
+            "logo": "iac.png",
+            "website": "http://www.iac.com/"
+        },
+        {
+            "company": "Kraft",
+            "logo": "kraft.gif",
+            "website": "http://www.kraft.com/"
+        },
+        {
+            "company": "Lego",
+            "logo": "lego.jpg",
+            "website": "http://www.lego.com/"
+        },
+        {
+            "company": "L Brands",
+            "logo": "Limited-Brands.jpg",
+            "website": "http://www.lb.com/"
+        },
+        {
+            "company": "MasterCard",
+            "logo": "mastercard.png",
+            "website": "http://www.mastercard.com/"
+        },
+        {
+            "company": "McDonalds",
+            "logo": "McDonalds.png",
+            "website": "http://www.mcdonalds.com/"
+        },
+        {
+            "company": "Microsoft",
+            "logo": "Microsoft.png",
+            "website": "http://www.microsoft.com/"
+        },
+        {
+            "company": "Nestle",
+            "logo": "nestle.jpg",
+            "website": "http://www.nestle.com/"
+        },
+        {
+            "company": "Nike",
+            "logo": "nike.png",
+            "website": "http://www.nike.com/"
+        },
+        {
+            "company": "Nintendo",
+            "logo": "nintendo.png",
+            "website": "http://www.nintendo.com/"
+        },
+        {
+            "company": "Nokia",
+            "logo": "NOKIA.png",
+            "website": "http://www.nokia.com/"
+        },
+        {
+            "company": "Old Navy",
+            "logo": "Old-Navy.jpg",
+            "website": "http://www.oldnavy.com/"
+        },
+        {
+            "company": "Oracle",
+            "logo": "oracle.gif",
+            "website": "http://www.oracle.com/"
+        },
+        {
+            "company": "PlayStation4",
+            "logo": "ps4.png",
+            "website": "http://www.playstation.com/"
+        },
+        {
+            "company": "Sony",
+            "logo": "sony.png",
+            "website": "http://www.sony.com/"
+        },
+        {
+            "company": "Starbucks",
+            "logo": "starbucks.png",
+            "website": "http://www.starbucks.com/"
+        },
+        {
+            "company": "Target",
+            "logo": "target.png",
+            "website": "http://www.target.com/"
+        },
+        {
+            "company": "Tesla",
+            "logo": "tesla.jpg",
+            "website": "http://www.tesla.com/"
+        },
+        {
+            "company": "Twitter",
+            "logo": "twitter.png",
+            "website": "http://www.twitter.com/"
+        },
+        {
+            "company": "Visa",
+            "logo": "visa.png",
+            "website": "http://www.visa.com/"
+        },
+        {
+            "company": "Walmart",
+            "logo": "walmart.jpg",
+            "website": "http://www.walmart.com/"
+        },
+        {
+            "company": "Xbox",
+            "logo": "xbox.png",
+            "website": "http://www.xbox.com/"
+        }
+    ]
+}
