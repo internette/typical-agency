@@ -59,7 +59,6 @@ router.route('/api/words')
 
             res.json(words);
         });
-        console.log('this works');
     });
 router.route('/api/colors')
   .get(function(req,res){
