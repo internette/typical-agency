@@ -45,7 +45,8 @@ router.route('/').get(function(req, res) {
 
 });
 router.route('/api').get(function(req, res) {
-    res.sendFile('./api/index.html');
+    // res.sendFile('./api/index.html');
+    res.send('im the home page!'); 
 });
 
 // more routes for our API will happen here
