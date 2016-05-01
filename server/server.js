@@ -38,6 +38,7 @@ router.use(function(req, res, next) {
 });
 
 // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
+app.use(express.static(path.join(__dirname + '/../')));
 router.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/../index.html'));
 });
@@ -58,7 +59,7 @@ router.route('/api/words')
             res.json(words);
         });
     });
-router.route('/colors')
+router.route('/api/colors')
   .get(function(req,res){
     Color.find(function(err, colors) {
       if (err)
@@ -95,7 +96,6 @@ router.route('/colors')
           });
         });
 // REGISTER OUR ROUTES -------------------------------
-// all of our routes will be prefixed with /api
 app.use('/', router);
 
 // START THE SERVER
