@@ -41,6 +41,7 @@ router.use(function(req, res, next) {
 app.use(express.static(path.join(__dirname + '/../')));
 router.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/../index.html'));
+    console.log(path.join(__dirname + '/../index.html'));
 });
 router.get('/api', function(req, res) {
     res.sendFile(path.join(__dirname + '/../api/index.html'));
