@@ -1,0 +1,249 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:300,900);
+* {
+  outline: 0;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif; }
+
+html, body {
+  margin: 0;
+  height: 100%; }
+
+#header {
+  text-align: center;
+  width: 100%;
+  color: #FFF;
+  height: 100%; }
+  #header #container {
+    display: table;
+    vertical-align: middle;
+    height: 100%;
+    width: 100%;
+    position: relative; }
+    #header #container .row {
+      display: table-row; }
+      #header #container .row > * {
+        padding: 0.5em; }
+      #header #container .row h1 {
+        text-transform: capitalize;
+        display: table-cell;
+        width: 100%;
+        vertical-align: bottom;
+        font-size: 3em; }
+      #header #container .row #slogan {
+        text-transform: lowercase;
+        display: table-cell;
+        width: 100%;
+        font-size: 1.25em; }
+        #header #container .row #slogan:first-letter {
+          text-transform: uppercase; }
+  #header #background-image {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    opacity: 0.6; }
+    #header #background-image:before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      content: ' ';
+      background-color: inherit;
+      mix-blend-mode: multiply; }
+    #header #background-image:after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      content: ' ';
+      background-color: inherit;
+      mix-blend-mode: color; }
+
+.banner {
+  padding: 0.5em; }
+
+#nav {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: #FFF;
+  z-index: 5;
+  padding-bottom: 0.25em; }
+  #nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0.5em;
+    float: right; }
+    #nav ul li {
+      position: relative;
+      float: left;
+      margin-right: 1em; }
+      #nav ul li a {
+        color: #FFF;
+        text-decoration: none;
+        padding-bottom: 0.25em;
+        transition: all ease-in-out 0.1s;
+        border-bottom: 3px solid transparent; }
+        #nav ul li a:hover {
+          cursor: pointer;
+          border-bottom: 3px solid #FFF; }
+  #nav #hamburger {
+    display: none;
+    width: 25px;
+    background: #FFF;
+    height: 4px;
+    float: right;
+    margin: 0.5em 0.5em 0 0; }
+    #nav #hamburger:before {
+      content: '';
+      display: block;
+      width: 25px;
+      background: #FFF;
+      height: 4px;
+      position: absolute;
+      margin-top: 9px; }
+    #nav #hamburger:after {
+      content: '';
+      display: block;
+      width: 25px;
+      background: #FFF;
+      height: 4px;
+      position: absolute;
+      margin-top: 18px; }
+
+h3 {
+  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 0.5em; }
+
+#contact {
+  text-align: center;
+  color: #FFF;
+  background: #4d4d4d; }
+  #contact a {
+    transition: all 0.25s ease-in-out; }
+    #contact a:hover {
+      color: #FFF !important; }
+  #contact #social {
+    font-size: 1.5em; }
+    #contact #social a {
+      color: inherit;
+      transition: all 0.25s ease-in-out; }
+      #contact #social a:hover {
+        color: white; }
+
+#about .emph {
+  font-weight: 700;
+  text-transform: capitalize; }
+
+#about #about-slogan {
+  font-size: 1.25em;
+  text-align: center;
+  text-transform: lowercase; }
+  #about #about-slogan:first-letter {
+    text-transform: capitalize; }
+
+#about #about-text {
+  display: flex; }
+  #about #about-text > div {
+    padding: 0.5em 2em 1em;
+    max-width: 33.3%; }
+
+#work {
+  padding: 0;
+  overflow: hidden; }
+  #work #work-cont {
+    clear: both;
+    display: flex;
+    flex-wrap: wrap; }
+    #work #work-cont .example-piece {
+      width: 25%;
+      padding-bottom: 25%;
+      color: #FFF;
+      position: relative;
+      float: left;
+      padding: 0.5em 1em;
+      overflow: hidden; }
+      #work #work-cont .example-piece h3 {
+        margin-top: 0.5em;
+        text-transform: capitalize;
+        font-size: 1.5em; }
+      #work #work-cont .example-piece:hover .example-bg {
+        -webkit-filter: blur(1.75px);
+        -moz-filter: blur(1.75px);
+        -o-filter: blur(1.75px);
+        -ms-filter: blur(1.75px);
+        filter: blur(1.75px); }
+        #work #work-cont .example-piece:hover .example-bg:before {
+          background-color: inherit; }
+        #work #work-cont .example-piece:hover .example-bg:after {
+          background-color: inherit; }
+      #work #work-cont .example-piece:hover .example-detail, #work #work-cont .example-piece:hover h3 {
+        opacity: 1; }
+      #work #work-cont .example-piece .example-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-size: cover;
+        z-index: 1;
+        background-color: inherit;
+        transition: all 0.25s ease-in-out; }
+        #work #work-cont .example-piece .example-bg:before {
+          background-color: transparent;
+          content: '';
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          mix-blend-mode: color;
+          transition: all 0.25s ease-in-out; }
+        #work #work-cont .example-piece .example-bg:after {
+          background-color: transparent;
+          content: '';
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          mix-blend-mode: multiply;
+          transition: all 0.25s ease-in-out; }
+      #work #work-cont .example-piece .example-detail, #work #work-cont .example-piece h3 {
+        z-index: 2;
+        position: relative;
+        opacity: 0;
+        transition: all 0.25s ease-in-out; }
+        #work #work-cont .example-piece .example-detail .type-of-job, #work #work-cont .example-piece h3 .type-of-job {
+          font-size: 0.7em;
+          text-align: center;
+          text-transform: uppercase;
+          font-weight: 700;
+          letter-spacing: 0.1em; }
+
+.circle {
+  left: 50%;
+  transform: translateX(-50%);
+  width: 65%;
+  padding-bottom: 65%;
+  border-radius: 50%;
+  position: relative;
+  background-size: 150%;
+  border: 3px solid gray;
+  margin-bottom: 1em; }
+  .circle#full-stack {
+    background-image: url(https://image.freepik.com/free-vector/computer-hardware-device-icon-vectors_658059.jpg); }
+  .circle#quality {
+    background-image: url(http://whythehellwouldyoucare.com/wp-content/uploads/2015/11/Consultancy_Excellence_concept.jpg);
+    background-color: teal;
+    background-blend-mode: overlay; }
+  .circle#client {
+    background-image: url(http://www.hedgeequities.com/sximo/themes/hedge/images/preffered-client-group.png); }
