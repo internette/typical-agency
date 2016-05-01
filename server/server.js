@@ -23,7 +23,7 @@ mongoose.connect('mongodb://twaffles:sakura@ec2-52-73-225-190.compute-1.amazonaw
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-var port = process.env.PORT || 8080;        // set our port
+var port = process.env.PORT || 80;        // set our port
 
 
 // ROUTES FOR OUR API
@@ -41,7 +41,6 @@ router.use(function(req, res, next) {
 app.use(express.static(path.join(__dirname + '/../')));
 router.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/../index.html'));
-    console.log(path.join(__dirname + '/../index.html'));
 });
 router.get('/api', function(req, res) {
     res.sendFile(path.join(__dirname + '/../api/index.html'));
