@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:400,900);
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,700);
 * {
   outline: 0;
   box-sizing: border-box; }
@@ -11,17 +11,16 @@ html, body {
 body {
   display: table; }
   body > div {
-    display: table-row; }
+    display: table-row;
+    position: relative; }
     body > div + div {
       height: 100%; }
     body > div > div {
-      height: 100%;
-      padding: 1em;
-      display: inline-block; }
+      height: 100%; }
 
 #header {
   text-align: right;
-  font-family: 'Raleway';
+  font-family: 'Raleway', sans-serif;
   background: #FF9188; }
   #header > * {
     width: 100%;
@@ -38,3 +37,62 @@ body {
     margin-top: 7px;
     margin-bottom: 0;
     color: #F4F4F4; }
+
+.wrapper {
+  position: relative; }
+  .wrapper #nav, .wrapper #body {
+    position: absolute; }
+
+#nav {
+  padding: 1em;
+  width: 15%;
+  left: 0; }
+  #nav ul {
+    list-style-type: none;
+    padding: 0 0 0 1em; }
+    #nav ul li {
+      padding: 0.2em 0; }
+      #nav ul li a {
+        text-decoration: none;
+        color: #c1c1c1;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 700;
+        transition: all 0.25s ease-in-out; }
+        #nav ul li a:before {
+          content: '\203A';
+          color: #c1c1c1;
+          display: block;
+          position: relative;
+          float: left;
+          margin-right: 0.3em; }
+        #nav ul li a:hover {
+          color: #FF9188; }
+          #nav ul li a:hover:before {
+            color: #FF9188; }
+        #nav ul li a span {
+          font-weight: 400; }
+      #nav ul li ul {
+        padding-top: 0.3em; }
+
+#body {
+  width: 85%;
+  height: 100%;
+  right: 0;
+  overflow: hidden; }
+  #body div {
+    overflow-y: auto;
+    position: relative;
+    height: 100%;
+    padding: 1em 2em 3em 1em; }
+    #body div h3 {
+      font-family: 'Raleway', sans-serif;
+      color: #FF9188;
+      font-weight: 700;
+      font-size: 1.5em;
+      margin-bottom: 0.3em; }
+      #body div h3:after {
+        content: '\00d7';
+        color: #c1c1c1;
+        margin-left: 0.25em;
+        position: relative;
+        display: block; }

@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:400,900);
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,700);
 $pink: #FF9188;
 $mint: #ADD8C7;
 $black: #222222;
@@ -16,19 +16,18 @@ body{
   display: table;
   > div {
     display: table-row;
+    position: relative;
     & + div {
       height: 100%;
     }
     > div {
       height: 100%;
-      padding: 1em;
-      display: inline-block;
     }
   }
 }
 #header {
   text-align: right;
-  font-family: 'Raleway';
+  font-family: 'Raleway', sans-serif;
   background: $pink;
   > * {
     width: 100%;
@@ -49,6 +48,77 @@ body{
     color: $ltgray;
   }
 }
+.wrapper {
+  position: relative;
+  #nav, #body {
+    position: absolute;
+  }
+}
 #nav {
+  padding: 1em;
+  width: 15%;
+  left: 0;
+  ul {
+    list-style-type: none;
+    padding: 0 0 0 1em;
+    li {
+      padding: 0.2em 0;
+      a {
+        text-decoration: none;
+        color: darken($ltgray, 20%);
+        font-family: 'Raleway', sans-serif;
+        font-weight: 700;
+        transition: all 0.25s ease-in-out;
+        &:before {
+          content: '\203A';
+          color: darken($ltgray, 20%);
+          display: block;
+          position: relative;
+          float: left;
+          margin-right: 0.3em;
+        }
+        &:hover {
+          color: $pink;
+          &:before {
+            color: $pink;
+          }
+        }
+        span {
+          font-weight: 400;
+        }
+      }
+      ul{
+        padding-top: 0.3em;
+      }
+    }
+  }
+}
+#body {
+  width: 85%;
+  height: 100%;
+  right: 0;
+  overflow: hidden;
+  div {
+    overflow-y: auto;
+    position: relative;
+    height: 100%;
+    padding: 1em 2em 3em 1em;
+    h3 {
+      font-family: 'Raleway', sans-serif;
+      color: $pink;
+      font-weight: 700;
+      font-size: 1.5em;
+      margin-bottom: 0.3em;
+      &:after {
+        content: '\00d7';
+        color: darken($ltgray, 20%);
+        margin-left: 0.25em;
+        position: relative;
+        display: block;
+      }
+    }
+    p {
 
+    }
+  }
 }
