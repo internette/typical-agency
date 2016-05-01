@@ -38,12 +38,12 @@ router.use(function(req, res, next) {
 });
 
 // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
-app.use(express.static(path.join(__dirname + './../')));
+app.use(express.static(path.join(__dirname + '/../')));
 router.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname + './../index.html'));
+    res.sendFile(path.join(__dirname + '/../index.html'));
 });
 router.get('/api', function(req, res) {
-    res.sendFile(path.join(__dirname + './../api/index.html'));
+    res.sendFile(path.join(__dirname + '/../api/index.html'));
 });
 
 // more routes for our API will happen here
