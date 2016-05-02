@@ -103,6 +103,9 @@ body{
     position: relative;
     height: 100%;
     padding: 1em 2em 3em 1em;
+    div {
+      height: auto;
+    }
     h3 {
       font-family: 'Raleway', sans-serif;
       color: $pink;
