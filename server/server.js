@@ -22,12 +22,12 @@ mongoose.connect('mongodb://twaffles:sakura@ec2-52-73-225-190.compute-1.amazonaw
 // this will let us get the data from a POST
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(function(req, res, next){
-  res.header('Access-Control-Allow-Origin','*');
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
-  next();
-});
+// app.use(function(req, res, next){
+//   res.header('Access-Control-Allow-Origin','*');
+//   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+//   res.header('Access-Control-Allow-Headers', 'Content-Type');
+//   next();
+// });
 
 var port = process.env.PORT || 8080;        // set our port
 
