@@ -5,7 +5,6 @@
 
 // call the packages we need
 var express    = require('express');
-var cors = require('cors');
 var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
 var path = require('path');
@@ -38,7 +37,6 @@ var router = express.Router();              // get an instance of the express Ro
 // middleware to use for all requests
 router.use(function(req, res, next) {
     // do logging
-    cors();
     console.log('Something is happening.');
     next(); // make sure we go to the next routes and don't stop here
 });
