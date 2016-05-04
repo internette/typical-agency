@@ -10,8 +10,8 @@ typicalAgency.controller('Header', ['$scope', '$http', 'brandColor', function($s
     var busBuzz = buzzwords.business;
     var compFirstWords =  words[0].firstwords;
     var compSecondWords =  words[0].secondwords;
-    var firstWord = compFirstWords[randNum(0, compFirstWords.length)];
-    var secondWord = compSecondWords[randNum(0, compSecondWords.length)];
+    var firstWord = compFirstWords[randNum(0, compFirstWords.length-1)];
+    var secondWord = compSecondWords[randNum(0, compSecondWords.length-1)];
     var compName = (function(){
       if(secondWord === 'ster'){
         return firstWord + secondWord;
@@ -23,7 +23,7 @@ typicalAgency.controller('Header', ['$scope', '$http', 'brandColor', function($s
       }
     })();
     $scope.name = compName;
-    $scope.slogan = "The "+busBuzz[randNum(0, busBuzz.length)] + ' of '+techBuzz[randNum(0, techBuzz.length)];
+    $scope.slogan = "The "+busBuzz[randNum(0, busBuzz.length-1)] + ' of '+techBuzz[randNum(0, techBuzz.length-1)];
   })
   .error(function(data, status, headers, config) {
       // log error
@@ -33,7 +33,7 @@ typicalAgency.controller('Header', ['$scope', '$http', 'brandColor', function($s
     .success(function(data){
       var images = data[0].photos;
       var backgrounds = images.background;
-      $scope.background = backgrounds[randNum(0, backgrounds.length)];
+      $scope.background = backgrounds[randNum(0, backgrounds.length-1)];
     })
     .error(function(data, status, headers, config){});
     }]);
