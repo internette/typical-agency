@@ -38,10 +38,8 @@ typicalAgency.controller('Header', function($scope, $http){
       var colors = data[0].colors;
       var color = colors[randNum(0, colors.length)];
       $scope.bgColor = color.value;
-      brandColor.push({
-        name: color.name,
-        value: color.value
-      });
+      window.brandColor.name = color.name;
+      window.brandColor.value = color.value;
     })
     .error(function(data, status, headers, config){});
     });
