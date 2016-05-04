@@ -63,7 +63,7 @@ router.route('/api/words')
             if (err)
                 res.send(err);
 
-            res.json(words);
+            res.jsonp(words);
         });
     });
     router.route('/api/words/buzzwords')
@@ -82,7 +82,7 @@ router.route('/api/colors')
       if (err)
         res.send(err);
 
-      res.json(colors);
+      res.jsonp(colors);
     });
   });
   router.route('/api/images')
@@ -91,7 +91,7 @@ router.route('/api/colors')
         if (err)
           res.send(err);
 
-        res.json(images);
+        res.jsonp(images);
       });
     });
     router.route('/api/bios').get(function(req,res){
@@ -99,7 +99,7 @@ router.route('/api/colors')
           if (err)
             res.send(err);
 
-          res.json(bios);
+          res.jsonp(bios);
         });
       });
       router.route('/api/clients')
@@ -108,7 +108,7 @@ router.route('/api/colors')
             if (err)
               res.send(err);
 
-            res.json(clients);
+            res.jsonp(clients);
           });
         });
 // REGISTER OUR ROUTES -------------------------------

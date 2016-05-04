@@ -18,8 +18,8 @@
 
 $(document).ready(function(){
   $.ajax({
-    url: 'http://typical.agency/api/bios',
-    dataType: 'json',
+    url: 'http://typical.agency/api/words/buzzwords',
+    dataType: 'jsonp',
     success: function(){
       console.log('this works');
     }
