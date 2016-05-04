@@ -2,6 +2,7 @@
 <head>
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/services/brandColor.js"></script>
   <script src="js/directives/navLink.js"></script>
   <script src="js/controllers/navLink.js"></script>
   <script src="js/directives/aboutCol.js"></script>
@@ -9,7 +10,7 @@
   <script src="js/controllers/header.js"></script>
   <script src="js/controllers/favicon.js"></script>
   <link rel="stylesheet" href="css/styles.css" />
-  <link ng-controller="Favicon" rel='shortcut icon' href='favicons/favicon-{{faviconColor}}.png' type='image/x-icon' />
+  <link ng-controller="Favicon" rel='shortcut icon' href='favicons/favicon-{{brandColor.name}}.png' type='image/x-icon' />
 </head>
 <body>
   <div id="nav">
@@ -18,8 +19,8 @@
       <nav-link ng-repeat="link in links" link="link"></nav-link>
     </ul>
   </div>
-  <div ng-controller="Header" id="header" class="banner" style="background-color: {{bgColor}}">
-    <div id="background-image" style="background-image: url({{background}}); background-color: {{bgColor}}"></div>
+  <div ng-controller="Header" id="header" class="banner" style="background-color: {{brandColor.value}}">
+    <div id="background-image" style="background-image: url({{background}}); background-color: {{brandColor.value}}"></div>
     <div id="container">
       <div class="row">
         <h1>{{name}}</h1>
@@ -31,7 +32,7 @@
   </div>
   <div ng-controller="aboutUs" class="banner" id="about">
     <h3>About Us</h3>
-    <p id="about-slogan"></p>
+    <p id="about-slogan">The {{busBuzz}} of <span class="emph">{{techBuzz}}</span></p>
     <div id="about-text">
       <about-col ng-repeat="column in columns" info="column"></about-col>
     </div>

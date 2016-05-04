@@ -1,4 +1,7 @@
-typicalAgency.controller('Header', function($scope, $http){
+typicalAgency.controller('Header', ['$scope', '$http', 'brandColor', function($scope, $http, brandColor){
+  brandColor.then(function(data){
+    $scope.brandColor = data;
+  });
   $http.get('/api/words')
   .success(function(data){
     var words = data;
@@ -33,13 +36,4 @@ typicalAgency.controller('Header', function($scope, $http){
       $scope.background = backgrounds[randNum(0, backgrounds.length)];
     })
     .error(function(data, status, headers, config){});
-    $http.get('/api/colors')
-    .success(function(data){
-      var colors = data[0].colors;
-      var color = colors[randNum(0, colors.length)];
-      $scope.bgColor = color.value;
-      window.brandColor.name = color.name;
-      window.brandColor.value = color.value;
-    })
-    .error(function(data, status, headers, config){});
-    });
+    }]);

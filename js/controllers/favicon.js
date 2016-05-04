@@ -1,4 +1,5 @@
-typicalAgency.controller('Favicon', function($scope, $http){
-  $scope.faviconColor = brandColor.name;
-  console.log(brandColor);
-});
+typicalAgency.controller('Favicon', ['$scope', 'brandColor', function($scope, brandColor){
+  brandColor.then(function(data){
+    $scope.brandColor = data;
+  });
+}]);
