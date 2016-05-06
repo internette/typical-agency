@@ -8,14 +8,16 @@
   <script src="js/directives/aboutCol.js"></script>
   <script src="js/controllers/aboutUs.js"></script>
   <script src="js/controllers/header.js"></script>
+  <!-- <script src="js/directives/singleWork.js"></script> -->
+  <script src="js/controllers/work.js"></script>
   <script src="js/controllers/favicon.js"></script>
   <link rel="stylesheet" href="css/styles.css" />
   <link ng-controller="Favicon" rel='shortcut icon' href='favicons/favicon-{{brandColor.name}}.png' type='image/x-icon' />
 </head>
 <body>
-  <div id="nav">
+  <div id="nav" ng-controller="navLink">
     <div id="hamburger"></div>
-    <ul ng-controller="navLink">
+    <ul>
       <nav-link ng-repeat="link in links" link="link"></nav-link>
     </ul>
   </div>
@@ -37,7 +39,7 @@
       <about-col ng-repeat="column in columns" info="column"></about-col>
     </div>
   </div>
-  <div class="banner" id="work">
+  <div class="banner" id="work" ng-controller="work">
     <h3>Recent Works</h3>
     <div id="work-cont">
 

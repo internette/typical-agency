@@ -14,6 +14,7 @@ var Color = require('../api/models/color');
 var Images = require('../api/models/image');
 var Bio = require('../api/models/bio');
 var Client = require('../api/models/client');
+var Person = require('../api/models/person');
 
 mongoose.connect('mongodb://twaffles:sakura@ec2-52-73-225-190.compute-1.amazonaws.com:27017/dummyDB'); // connect to our database
 //
@@ -45,6 +46,10 @@ router.use(function(req, res, next) {
 app.use(express.static(path.join(__dirname + '/../')));
 router.route('/').get(function(req, res) {
     res.sendFile(path.join(__dirname + '/../index.html'));
+
+});
+router.route('/team').get(function(req, res) {
+    res.sendFile(path.join(__dirname + '/../team.html'));
 
 });
 router.route('/api').get(function(req, res) {
@@ -109,6 +114,15 @@ router.route('/api/colors')
             res.jsonp(clients);
           });
         });
+        router.route('/api/people')
+          .get(function(req,res){
+            Person.find(function(err,people) {
+              if (err)
+                res.send(err);
+
+              res.jsonp(people);
+            });
+          });
 // REGISTER OUR ROUTES -------------------------------
 app.use('/', router);
 
