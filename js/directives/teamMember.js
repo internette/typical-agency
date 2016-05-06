@@ -1,6 +1,6 @@
 typicalAgency.directive('teamMember', function() {
   return {
-    restrict: 'E',
+    restrict: 'A',
     scope: {
       person: '='
     },
