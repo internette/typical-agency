@@ -48,7 +48,7 @@ router.route('/').get(function(req, res) {
   res.sendFile(path.join(__dirname + '/../index.html'));
 });
 router.route('/team').get(function(req, res) {
-  res.sendFile(path.join(__dirname + '/../team/index.html'));
+  res.sendFile(path.join(__dirname + '/../team.html'));
 });
 router.route('/api').get(function(req, res) {
     res.sendFile(path.join(__dirname + '/../api/index.html'));
