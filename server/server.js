@@ -46,7 +46,7 @@ router.use(function(req, res, next) {
 app.use(express.static(path.join(__dirname + '/../')));
 router.route('/').get(function(req, res) {
     console.log('hey there');
-    res.sendFile('./index.html');
+    // res.sendFile('./index.html');
 
 });
 router.route('/team').get(function(req, res) {
