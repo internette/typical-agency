@@ -45,10 +45,10 @@ router.use(function(req, res, next) {
 // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
 app.use(express.static(path.join(__dirname + '/../')));
 router.route('/').get(function(req, res) {
-    res.sendFile('./index.html');
     fs.readdir('./', function(d){
       console.log(d);
     });
+    res.sendFile('./index.html');
 
 });
 router.route('/team').get(function(req, res) {
