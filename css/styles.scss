@@ -296,4 +296,13 @@ h3{
   padding-bottom: 18%;
   margin: 1%;
   float: left;
+  > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    &.member-background {
+      height: 100%;
+      width: 100%;
+    }
+  }
 }
