@@ -1,0 +1,27 @@
+{
+    "_id": {
+        "$oid": "29o3cn29u3jd9qjdofjo23rj"
+    },
+    "persons": [
+        {
+            "tagline": "Collaboration Powered",
+            "bio": "We're a small group that loves what we do and doing it together.",
+            "img": "https://static.pexels.com/photos/7096/people-woman-coffee-meeting.jpg"
+        },
+        {
+            "tagline": "Inclusion Focused",
+            "bio": "We love our clients and the relationships with them. That's why we make sure to include you in every step of the way.",
+            "img": "https://images.unsplash.com/photo-1418225162054-0f773a996f9e"
+        },
+        {
+            "tagline": "Detail Driven",
+            "bio": "We know the details matter. That's why we pride ourselves in detail-oriented work, from the perfect tagline to pixel-perfect designs.",
+            "img": "https://static.pexels.com/photos/6384/woman-hand-desk-office.jpg"
+        },
+        {
+            "tagline": "Make branding fun again",
+            "bio": "Branding shouldn't be dull. We ensure that you will walk away with a brand that allows you to stand out.",
+            "img": "https://static.pexels.com/photos/7087/office-relax-clean-ping-pong.jpg"
+        }
+    ]
+}
