@@ -4,6 +4,6 @@ typicalAgency.directive('navLink', function() {
     scope: {
       link: '='
     },
-    templateUrl: 'js/directives/navLink.html'
+    templateUrl: '/js/directives/navLink.html'
   };
 });

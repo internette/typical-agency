@@ -4,6 +4,6 @@ typicalAgency.directive('teamMember', function() {
     scope: {
       person: '='
     },
-    templateUrl: 'js/directives/teamMember.html'
+    templateUrl: '/js/directives/teamMember.html'
   };
 });
