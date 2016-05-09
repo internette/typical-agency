@@ -264,3 +264,33 @@ h3 {
       width: 100%;
       background-size: cover;
       background-position: center; }
+    .teammate > *.member-info {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      color: #FFF;
+      transform: scaleY(0);
+      transition: all 0.2s ease-in-out;
+      transform-origin: bottom center; }
+      .teammate > *.member-info.yellow {
+        color: #000; }
+      .teammate > *.member-info > * {
+        position: relative;
+        text-align: center;
+        display: block;
+        font-weight: 900; }
+        .teammate > *.member-info > *.background {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          opacity: 0.5; }
+          .teammate > *.member-info > *.background + * {
+            margin-top: 6em; }
+      .teammate > *.member-info > p {
+        font-weight: 300; }
+  .teammate:hover .member-info {
+    transform: scaleY(1); }
