@@ -1,5 +1,7 @@
-typicalAgency.controller('Favicon', ['$scope', 'brandColor', function($scope, brandColor){
+typicalAgency.controller('Favicon', ['$scope', 'brandColor', '$window', function($scope, brandColor, $window){
   brandColor.then(function(data){
-    $scope.brandColor = data;
+    $window.sessionStorage.setItem("brandColorValue", data.value);
+    $window.sessionStorage.setItem("brandColorName", data.name);
+    $scope.brandColorName = $window.sessionStorage.getItem("brandColorName");
   });
 }]);

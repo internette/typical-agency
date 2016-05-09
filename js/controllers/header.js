@@ -1,6 +1,7 @@
-typicalAgency.controller('Header', ['$scope', '$http', 'brandColor', function($scope, $http, brandColor){
+typicalAgency.controller('Header', ['$scope', '$http', 'brandColor', '$window', function($scope, $http, brandColor, $window){
   brandColor.then(function(data){
-    $scope.brandColor = data;
+    $scope.brandColorValue = $window.sessionStorage.getItem("brandColorValue");
+    $scope.brandColorName = $window.sessionStorage.getItem("brandColorName");
   });
   $http.get('/api/words')
   .success(function(data){
