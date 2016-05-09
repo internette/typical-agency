@@ -4,6 +4,6 @@ typicalAgency.directive('singleWord', function() {
     scope: {
       company: '='
     },
-    templateUrl: 'js/directives/singleWork.html'
+    templateUrl: '/js/directives/singleWork.html'
   };
 });
