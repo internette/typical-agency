@@ -12,7 +12,7 @@
   <script src="/js/controllers/work.js"></script>
   <script src="/js/controllers/favicon.js"></script>
   <link rel="stylesheet" href="/css/styles.css" />
-  <link ng-controller="Favicon" rel='shortcut icon' href='/favicons/favicon-{{brandColor.name}}.png' type='image/x-icon' />
+  <link ng-controller="Favicon" rel='shortcut icon' href='/favicons/favicon-{{brandColorName}}.png' type='image/x-icon' />
 </head>
 <body>
   <div id="nav" ng-controller="navLink">
@@ -21,8 +21,8 @@
       <nav-link ng-repeat="link in links" link="link"></nav-link>
     </ul>
   </div>
-  <div ng-controller="Header" id="header" class="banner" style="background-color: {{brandColor.value}}">
-    <div id="background-image" style="background-image: url({{background}}); background-color: {{brandColor.value}}"></div>
+  <div ng-controller="Header" id="header" class="banner" style="background-color: {{brandColorValue}}">
+    <div id="background-image" style="background-image: url({{background}}); background-color: {{brandColorValue}}"></div>
     <div id="container">
       <div class="row">
         <h1>{{name}}</h1>
