@@ -1,8 +1,8 @@
-typicalAgency.directive('singleWord', function() {
+typicalAgency.directive('singleWork', function() {
   return {
-    restrict: 'E',
+    restrict: 'A',
     scope: {
-      company: '='
+      project: '='
     },
     templateUrl: '/js/directives/singleWork.html'
   };
