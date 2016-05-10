@@ -158,72 +158,60 @@ h3 {
 #work {
   padding: 0;
   overflow: hidden; }
+  #work h3 {
+    margin-top: 1.7em;
+    margin-bottom: 1.3em; }
   #work #work-cont {
     clear: both;
     display: flex;
-    flex-wrap: wrap; }
+    flex-wrap: wrap;
+    padding: 0.5%; }
     #work #work-cont .example-piece {
-      width: 25%;
-      padding-bottom: 25%;
+      width: 24%;
+      height: 30%;
       color: #FFF;
       position: relative;
       float: left;
-      padding: 0.5em 1em;
-      overflow: hidden; }
+      overflow: hidden;
+      margin: 0.5%; }
       #work #work-cont .example-piece h3 {
         margin-top: 0.5em;
         text-transform: capitalize;
         font-size: 1.5em; }
       #work #work-cont .example-piece:hover .example-bg {
-        -webkit-filter: blur(1.75px);
-        -moz-filter: blur(1.75px);
-        -o-filter: blur(1.75px);
-        -ms-filter: blur(1.75px);
-        filter: blur(1.75px); }
-        #work #work-cont .example-piece:hover .example-bg:before {
-          background-color: inherit; }
-        #work #work-cont .example-piece:hover .example-bg:after {
-          background-color: inherit; }
-      #work #work-cont .example-piece:hover .example-detail, #work #work-cont .example-piece:hover h3 {
-        opacity: 1; }
+        -webkit-filter: blur(1.5px);
+        -moz-filter: blur(1.5px);
+        -o-filter: blur(1.5px);
+        -ms-filter: blur(1.5px);
+        filter: blur(1.5px); }
+      #work #work-cont .example-piece:hover .piece-info {
+        transform: scaleY(1); }
       #work #work-cont .example-piece .example-bg {
         position: absolute;
         top: 0;
         left: 0;
-        height: 100%;
-        width: 100%;
+        height: 105%;
+        width: 105%;
         background-size: cover;
+        background-position: center;
         z-index: 1;
         background-color: inherit;
         transition: all 0.25s ease-in-out; }
-        #work #work-cont .example-piece .example-bg:before {
-          background-color: transparent;
-          content: '';
-          display: block;
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          mix-blend-mode: color;
-          transition: all 0.25s ease-in-out; }
-        #work #work-cont .example-piece .example-bg:after {
-          background-color: transparent;
-          content: '';
-          display: block;
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          mix-blend-mode: multiply;
-          transition: all 0.25s ease-in-out; }
-      #work #work-cont .example-piece .example-detail, #work #work-cont .example-piece h3 {
+      #work #work-cont .example-piece .piece-info {
+        transform: scaleY(0);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transition: all 0.2s ease-in-out;
+        padding: 0.5em 1em;
+        transform-origin: bottom center;
+        overflow: hidden; }
+      #work #work-cont .example-piece .piece-info, #work #work-cont .example-piece h3 {
         z-index: 2;
-        position: relative;
-        opacity: 0;
-        transition: all 0.25s ease-in-out; }
-        #work #work-cont .example-piece .example-detail .type-of-job, #work #work-cont .example-piece h3 .type-of-job {
+        position: relative; }
+        #work #work-cont .example-piece .piece-info .type-of-job, #work #work-cont .example-piece h3 .type-of-job {
           font-size: 0.7em;
           text-align: center;
           text-transform: uppercase;
@@ -250,8 +238,8 @@ h3 {
     background-image: url(https://s3.amazonaws.com/typical-agency/images/photos/css-images/preffered-client-group.png); }
 
 .teammate {
-  width: 18%;
-  padding-bottom: 18%;
+  width: 23%;
+  padding-bottom: 23%;
   margin: 1%;
   position: relative;
   float: left; }
@@ -294,3 +282,78 @@ h3 {
         font-weight: 300; }
   .teammate:hover .member-info {
     transform: scaleY(1); }
+
+#blurb {
+  min-height: 30em;
+  position: relative;
+  clear: both; }
+  #blurb .bg-image, #blurb .bg-color {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center; }
+  #blurb .bg-color {
+    opacity: 0.6; }
+  #blurb .blurb-content {
+    position: relative;
+    color: #FFF; }
+    #blurb .blurb-content h3 {
+      font-size: 3em;
+      margin-top: 2em; }
+    #blurb .blurb-content p {
+      font-size: 1.7em;
+      width: 70%;
+      margin-left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      margin-top: 1.7em;
+      line-height: 1.7em; }
+
+#clients {
+  padding: 0 5em 5em; }
+  #clients .client {
+    display: block;
+    position: relative;
+    float: left;
+    width: 23%;
+    margin: 1% 1% 3%;
+    text-align: center; }
+    #clients .client img {
+      max-width: 80%;
+      max-height: 3em; }
+
+@media (max-width: 960px) {
+  #about #about-text {
+    display: block; }
+    #about #about-text > * {
+      max-width: none;
+      width: 100%;
+      clear: both; }
+      #about #about-text > * > * {
+        padding: 0 0.5em;
+        text-align: center; }
+  #work #work-cont .example-piece {
+    width: 49%; }
+    #work #work-cont .example-piece h3 {
+      margin: 0;
+      font-size: 1.1em;
+      padding-top: 0.3em; }
+    #work #work-cont .example-piece .example-detail {
+      font-size: 0.8em;
+      letter-spacing: 0.05em;
+      line-height: 1.3em;
+      margin: 0.4em 0; }
+      #work #work-cont .example-piece .example-detail p {
+        margin: 0; }
+        #work #work-cont .example-piece .example-detail p.type-of-job {
+          margin: 0.3em 0; }
+  #clients {
+    padding: 0 1em 5em; }
+    #clients .client {
+      max-height: 5em;
+      height: 5em;
+      display: inline-block;
+      vertical-align: center; } }
