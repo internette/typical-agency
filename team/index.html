@@ -1,25 +1,42 @@
 <html ng-app="typicalAgency">
 <head>
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
   <script src="/js/app.js"></script>
   <script src="/js/services/brandColor.js"></script>
+  <script src="/js/services/agencyName.js"></script>
   <script src="/js/directives/navLink.js"></script>
   <script src="/js/controllers/navLink.js"></script>
   <script src="/js/directives/teamMember.js"></script>
   <script src="/js/controllers/team.js"></script>
+  <script src="/js/controllers/footer.js"></script>
   <script src="/js/controllers/favicon-subpage.js"></script>
   <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" />
   <link ng-controller="FaviconSubpage" rel='shortcut icon' href='/favicons/favicon-{{brandColorName}}.png' type='image/x-icon' />
 </head>
 <body>
-  <div id="nav" ng-controller="navLink">
+  <div id="nav" ng-controller="navLink" style="background: {{brandColorValue}}">
     <div id="hamburger"></div>
     <ul>
-      <nav-link ng-repeat="link in links" link="link"></nav-link>
+      <nav-link ng-repeat="link in links" link="link" ng-click="clickEvent($event)"></nav-link>
     </ul>
   </div>
   <div ng-controller="Team" id="team">
+    <h3>Meet the <span style="color: {{brandColorValue}}">{{agencyName}}</span> Team</h3>
     <div team-member ng-repeat="person in people" person="person" class="teammate"></div>
+  </div>
+  <div ng-controller="Footer" class="banner {{brandColorName}}" id="contact">
+    <h3>Contact Us</h3>
+    <p>Send us a note! We're always interested in your ideas. Reach out to us at <a href="#" id="contactus" style="color:{{brandColorValue}}">hello@{{agencyName}}.com</a>.
+    <div id="footer">
+      <span id="social">
+        <a target="_blank" href="http://facebook.com" style="color:{{brandColorValue}}"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+        <a target="_blank" href="http://twitter.com/twaffl3s" style="color:{{brandColorValue}}"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+        <a target="_blank" href="http://youtube.com" style="color:{{brandColorValue}}"><i class="fa fa-youtube" aria-hidden="true"></i>
+        </a>
+      </span>
+    </div>
   </div>
 </body>
 </html>
