@@ -1,13 +1,13 @@
 typicalAgency.controller('Work', function($scope, $http){
   var clientColors = [];
   $http.get('/api/colors').success(function(data){
-    var i = randNum(0, (data[0].colors.length-1));
+    var i = randNum(0, (data.colors.length-1));
     while (clientColors.length < 3){
-      if(clientColors.indexOf(data[0].colors[i])<=-1){
-        clientColors.push(data[0].colors[i]);
-        i = randNum(0, (data[0].colors.length-1));
+      if(clientColors.indexOf(data.colors[i])<=-1){
+        clientColors.push(data.colors[i]);
+        i = randNum(0, (data.colors.length-1));
       } else {
-        i = randNum(0, (data[0].colors.length-1));
+        i = randNum(0, (data.colors.length-1));
       }
     }
     $scope.clientColors = clientColors;
@@ -33,13 +33,13 @@ typicalAgency.controller('Work', function($scope, $http){
     $scope.projects = [];
     $http.get('/api/images')
     .success(function(data){
-      $scope.backgrounds = data[0].photos.projects;
+      $scope.backgrounds = data.projects;
       $http.get('/api/words')
       .success(function(data){
         var compNames = [];
         while(compNames.length < 8){
-          var compName1 = data[0].firstwords[randNum(0, data[0].firstwords.length-1)];
-          var compName2 = data[0].secondwords[randNum(0, data[0].secondwords.length-1)];
+          var compName1 = data.firstwords.firstwords[randNum(0, data.firstwords.firstwords.length-1)];
+          var compName2 = data.secondwords.secondwords[randNum(0, data.secondwords.secondwords.length-1)];
           var compName = (function(){
             if(compName2 === 'ster'){
               return compName1 + compName2;
@@ -67,11 +67,11 @@ typicalAgency.controller('Work', function($scope, $http){
             proj.info = projType.info;
           }
           if(proj.name.match(/marketing/gi)){
-            proj.bgimg = $scope.backgrounds.marketing[randNum(0, $scope.backgrounds.marketing.length-1)];
+            proj.bgimg = $scope.backgrounds.marketing.images[randNum(0, $scope.backgrounds.marketing.images.length-1)].medium.url;
           } else if(proj.name.match(/web site/gi)){
-            proj.bgimg = $scope.backgrounds.web[randNum(0, $scope.backgrounds.web.length-1)];
+            proj.bgimg = $scope.backgrounds.web.images[randNum(0, $scope.backgrounds.web.images.length-1)].medium.url;
           } else if(proj.name.match(/brand/gi)){
-            proj.bgimg = $scope.backgrounds.brand[randNum(0, $scope.backgrounds.brand.length-1)];
+            proj.bgimg = $scope.backgrounds.brand.images[randNum(0, $scope.backgrounds.brand.images.length-1)].medium.url;
           }
           $scope.projects.push(proj);
           i++;

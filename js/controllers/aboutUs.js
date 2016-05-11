@@ -18,7 +18,7 @@ typicalAgency.controller('aboutUs', function($scope, $http){
   ];
   $http.get('/api/words/buzzwords')
   .success(function(data){
-    $scope.techBuzz = data.tech[randNum(0, data.tech.length-1)];
-    $scope.busBuzz = data.business[randNum(0, data.business.length-1)];
+    $scope.techBuzz = data.tech.tech[randNum(0, data.tech.tech.length-1)];
+    $scope.busBuzz = data.business.business[randNum(0, data.business.business.length-1)];
   });
 });

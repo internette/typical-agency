@@ -10,20 +10,19 @@ typicalAgency.controller('Header', ['$scope', '$http', 'brandColor', '$window', 
   $http.get('/api/words')
   .success(function(data){
     var words = data;
-    var buzzwords = words[0].buzzwords;
-    var techBuzz = buzzwords.tech;
-    var busBuzz = buzzwords.business;
+    var buzzwords = words.buzzwords;
+    var techBuzz = buzzwords.tech.tech;
+    var busBuzz = buzzwords.business.business;
     $scope.slogan = "The "+busBuzz[randNum(0, busBuzz.length-1)] + ' of '+techBuzz[randNum(0, techBuzz.length-1)];
   })
-  .error(function(data, status, headers, config) {
-      // log error
-      // console.log(data);
-    });
-    $http.get('/api/images')
-    .success(function(data){
-      var images = data[0].photos;
-      var backgrounds = images.background;
-      $scope.background = backgrounds[randNum(0, backgrounds.length-1)];
+  .error(function(data, status, headers, config) {});
+  $http.get('/api/images').success(function(data){
+    var images = data;
+    var backgrounds = images.backgrounds.backgrounds;
+    $scope.background = backgrounds[randNum(0, backgrounds.length-1)].large.url;
     })
     .error(function(data, status, headers, config){});
-    }]);
+    if($window.sessionStorage.getItem("agencyName").match(/ /gi)){
+      $scope.agencyName = $window.sessionStorage.getItem("agencyName").replace(/ /gi,'_');
+    }
+  }]);
