@@ -7,6 +7,8 @@ typicalAgency.controller('navLink', function($scope, $window, $document, $locati
     $event.preventDefault();
     if(!$location.$$absUrl.match(/team/gi)){
         $("html, body").animate({ scrollTop: $('#'+$event.target.href.split('#')[1]).offset().top-15 }, 750);
+    } else {
+      window.location = $location.$$absUrl.split(/\/team/gi)[0]
     }
   }
 });
