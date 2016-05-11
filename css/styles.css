@@ -8,6 +8,12 @@ html, body {
   margin: 0;
   height: 100%; }
 
+.mobile-only {
+  display: none; }
+
+.desktop-only {
+  display: block; }
+
 #header {
   text-align: center;
   width: 100%;
@@ -91,29 +97,52 @@ html, body {
         #nav ul li a:hover {
           cursor: pointer;
           border-bottom: 3px solid #FFF; }
-  #nav #hamburger {
-    display: none;
+  #nav #hamburger #menu-btn {
     width: 25px;
-    background: #FFF;
-    height: 4px;
+    height: 25px;
     float: right;
-    margin: 0.5em 0.5em 0 0; }
-    #nav #hamburger:before {
+    margin: 0.5em 0.5em 0 0;
+    border-top: 4px solid #FFF; }
+    #nav #hamburger #menu-btn:hover {
+      cursor: pointer; }
+    #nav #hamburger #menu-btn:before {
       content: '';
       display: block;
       width: 25px;
       background: #FFF;
       height: 4px;
       position: absolute;
-      margin-top: 9px; }
-    #nav #hamburger:after {
+      margin-top: 5px; }
+    #nav #hamburger #menu-btn:after {
       content: '';
       display: block;
       width: 25px;
       background: #FFF;
       height: 4px;
       position: absolute;
-      margin-top: 18px; }
+      margin-top: 14px; }
+  #nav #hamburger ul {
+    padding: 0;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    height: 0;
+    overflow: hidden;
+    transition: all 0.25s ease-in-out; }
+    #nav #hamburger ul.active {
+      height: 100vh; }
+    #nav #hamburger ul li {
+      clear: both;
+      width: 100%;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.5); }
+      #nav #hamburger ul li a {
+        font-size: 1.5em;
+        display: inline-block;
+        padding: 1em 0;
+        width: 100%; }
 
 h3 {
   text-align: center;
@@ -387,6 +416,10 @@ h3 {
         font-size: 0.9em; } }
 
 @media (max-width: 600px) {
+  .mobile-only {
+    display: block; }
+  .desktop-only {
+    display: none; }
   #about #about-text {
     display: block; }
     #about #about-text > * {

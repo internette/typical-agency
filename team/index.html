@@ -16,10 +16,17 @@
   <link ng-controller="FaviconSubpage" rel='shortcut icon' href='/favicons/favicon-{{brandColorName}}.png' type='image/x-icon' />
 </head>
 <body>
-  <div id="nav" ng-controller="navLink" style="background: {{brandColorValue}}">
-    <div id="hamburger"></div>
-    <ul>
+  <div id="nav" ng-controller="navLink">
+    <div id="hamburger" class="mobile-only">
+      <a href="" id="menu-btn" ng-click="clickEvent($event)"></a>
+      <ul class="mobile-only" style="background-color: {{brandColorValue}}">
+        <nav-link ng-repeat="link in links" link="link" ng-click="clickEvent($event)"></nav-link>
+        <li><a href="/team">Team</a>
+      </ul>
+    </div>
+    <ul class="desktop-only">
       <nav-link ng-repeat="link in links" link="link" ng-click="clickEvent($event)"></nav-link>
+      <li><a href="/team">Team</a>
     </ul>
   </div>
   <div ng-controller="Team" id="team">

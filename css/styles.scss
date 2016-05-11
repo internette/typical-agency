@@ -8,6 +8,12 @@ html, body{
   margin: 0;
   height: 100%;
 }
+.mobile-only {
+  display: none;
+}
+.desktop-only {
+  display: block;
+}
 #header{
   text-align: center;
   width: 100%;
@@ -105,29 +111,59 @@ html, body{
     }
   }
   #hamburger{
-    display: none;
-    width: 25px;
-    background: #FFF;
-    height: 4px;
-    float: right;
-    margin: 0.5em 0.5em 0 0;
-    &:before{
-      content: '';
-      display: block;
+    #menu-btn {
       width: 25px;
-      background: #FFF;
-      height: 4px;
-      position: absolute;
-      margin-top: 9px;
+      height: 25px;
+      float: right;
+      margin: 0.5em 0.5em 0 0;
+      border-top: 4px solid #FFF;
+      &:hover {
+        cursor: pointer;
+      }
+      &:before{
+        content: '';
+        display: block;
+        width: 25px;
+        background: #FFF;
+        height: 4px;
+        position: absolute;
+        margin-top: 5px;
+      }
+      &:after{
+        content: '';
+        display: block;
+        width: 25px;
+        background: #FFF;
+        height: 4px;
+        position: absolute;
+        margin-top: 14px;
+      }
     }
-    &:after{
-      content: '';
-      display: block;
-      width: 25px;
-      background: #FFF;
-      height: 4px;
+    ul {
+      padding: 0;
+      width: 100%;
       position: absolute;
-      margin-top: 18px;
+      text-align:center;
+      top:0;
+      left: 0;
+      z-index: -1;
+      height: 0;
+      overflow: hidden;
+      transition: all 0.25s ease-in-out;
+      &.active {
+        height: 100vh;
+      }
+      li {
+        clear: both;
+        width: 100%;
+        border-bottom: 1px solid rgba(#FFF, 0.5);
+        a {
+          font-size: 1.5em;
+          display: inline-block;
+          padding: 1em 0;
+          width: 100%;
+        }
+      }
     }
   }
 }
@@ -475,6 +511,12 @@ h3{
   }
 }
 @media (max-width: 600px){
+  .mobile-only {
+    display: block;
+  }
+  .desktop-only {
+    display: none;
+  }
   #about {
     #about-text {
       display: block;
