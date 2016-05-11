@@ -49,7 +49,7 @@ html, body{
     top: 0;
     left: 0;
     background-size: cover;
-    opacity: 0.6;
+    opacity: 0.2;
     &:before{
       position: absolute;
       top: 0;
@@ -58,7 +58,6 @@ html, body{
       height: 100%;
       content: ' ';
       background-color: inherit;
-      mix-blend-mode: multiply;
     }
     &:after{
       position: absolute;
@@ -68,7 +67,6 @@ html, body{
       height: 100%;
       content: ' ';
       background-color: inherit;
-      mix-blend-mode: color;
     }
   }
 }
@@ -142,6 +140,7 @@ h3{
   text-align: center;
   color: #FFF;
   background: mix(black, white, 70%);
+  padding-bottom: 3em;
   a{
     transition: all 0.25s ease-in-out;
     &:hover{
@@ -200,12 +199,7 @@ h3{
       float: left;
       overflow: hidden;
       margin: 0.5%;
-      h3{
-        margin-top: 0.5em;
-        text-transform: capitalize;
-        font-size: 1.5em;
-      }
-     &:hover{
+      &:hover{
        .example-bg {
          -webkit-filter: blur(1.5px);
          -moz-filter: blur(1.5px);
@@ -240,17 +234,28 @@ h3{
        padding: 0.5em 1em;
        transform-origin: bottom center;
        overflow: hidden;
-     }
-     .piece-info, h3{
-       z-index: 2;
-       position: relative;
+       h3{
+         margin-top: 0.5em;
+         margin-bottom: 0;
+         text-transform: capitalize;
+         font-size: 1.5em;
+       }
        .type-of-job{
          font-size: 0.7em;
          text-align: center;
          text-transform: uppercase;
          font-weight: 700;
          letter-spacing: 0.1em;
+         margin: 1em;
+         & + p {
+           margin: 0;
+           font-size: 0.9em;
+         }
        }
+     }
+     .piece-info, h3{
+       z-index: 2;
+       position: relative;
      }
     }
   }
@@ -277,60 +282,73 @@ h3{
     background-image: url(https://s3.amazonaws.com/typical-agency/images/photos/css-images/preffered-client-group.png);
   }
 }
-.teammate {
-  width: 23%;
-  padding-bottom: 23%;
-  margin: 1%;
-  position: relative;
-  float: left;
-  > * {
-    position: absolute;
-    top: 0;
-    left: 0;
-    &.member-background {
-      height: 100%;
-      width: 100%;
-      background-size: cover;
-      background-position: center;
+#team {
+  padding: 1em 0.75em;
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+  > h3 {
+    span {
+      text-transform: capitalize;
     }
-    &.member-info {
+  }
+  .teammate {
+    width: 23%;
+    padding-bottom: 23%;
+    margin: 1%;
+    position: relative;
+    float: left;
+    > * {
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
-      color: #FFF;
-      transform: scaleY(0);
-      transition: all 0.2s ease-in-out;
-      transform-origin: bottom center;
-      &.yellow {
-        color: #000;
+      &.member-background {
+        height: 100%;
+        width: 100%;
+        background-size: cover;
+        background-position: center;
       }
-      > * {
-        position: relative;
-        text-align: center;
-        display: block;
-        font-weight: 900;
-        &.background {
-          position: absolute;
-          top: 0;
-          left: 0;
-          height: 100%;
-          width: 100%;
-          opacity: 0.5;
-          & + * {
-            margin-top: 6em;
+      &.member-info {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        color: #FFF;
+        transform: scaleY(0);
+        transition: all 0.2s ease-in-out;
+        transform-origin: bottom center;
+        &.yellow {
+          color: #000;
+        }
+        > * {
+          position: relative;
+          text-align: center;
+          display: block;
+          font-weight: 900;
+          &.background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            opacity: 0.5;
+            & + * {
+              margin-top: 6em;
+            }
           }
         }
-      }
-      > p {
-        font-weight: 300;
+        > p {
+          font-weight: 300;
+        }
       }
     }
-  }
-  &:hover {
-    .member-info {
-      transform: scaleY(1);
+    &:hover {
+      .member-info {
+        transform: scaleY(1);
+      }
     }
   }
 }
@@ -369,7 +387,10 @@ h3{
   }
 }
 #clients {
-  padding: 0 5em 5em;
+  padding: 0.3em 5em 5em;
+  .client-cont {
+    padding-top: 1.75em;
+  }
   .client {
     display: block;
     position: relative;
@@ -388,12 +409,12 @@ h3{
     #about-text {
       display: block;
       > * {
-        max-width: none;
-        width: 100%;
-        clear: both;
-        > * {
-          padding: 0 0.5em;
-          text-align: center;
+        padding: 0.5em 1em 1em;
+        display: inline-block;
+        vertical-align: top;
+        .circle {
+          width: 100%;
+          padding-bottom: 100%;
         }
       }
     }
@@ -429,6 +450,78 @@ h3{
       height: 5em;
       display: inline-block;
       vertical-align: center;
+    }
+  }
+  #team {
+    padding: 2em 0.25em 0.25em;
+    .teammate {
+      width: 31%;
+      padding-bottom: 31%;
+      margin: 1%;
+      .member-info {
+        .name {
+          margin-top: 2em;
+        }
+        .title {
+          font-size: 0.8em;
+          margin-top: 0.3em;
+        }
+        p {
+          margin-top: 0.5em;
+          font-size: 0.9em;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 600px){
+  #about {
+    #about-text {
+      display: block;
+      > * {
+        max-width: none;
+        width: 100%;
+        clear: both;
+        padding: 0.5em 2em 1em;
+        > * {
+          padding: 0 0.5em;
+          text-align: center;
+        }
+      }
+    }
+  }
+  #team {
+    padding: 2em 0.25em 0.25em;
+    .teammate {
+      width: 48%;
+      padding-bottom: 48%;
+      margin: 1%;
+      .member-info {
+        .name {
+          margin-top: 2em;
+        }
+        .title {
+          font-size: 0.8em;
+          margin-top: 0.3em;
+        }
+        p {
+          margin-top: 0.5em;
+          font-size: 0.9em;
+        }
+      }
+    }
+  }
+  #contact {
+    h3 {
+      margin-bottom: 0.75em;
+    }
+    #social {
+      display: block;
+      margin-top: 1.5em;
+      a {
+        font-size: 1.75em;
+        margin: 0 0.3em;
+      }
     }
   }
 }

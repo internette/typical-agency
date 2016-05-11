@@ -43,7 +43,7 @@ html, body {
     top: 0;
     left: 0;
     background-size: cover;
-    opacity: 0.6; }
+    opacity: 0.2; }
     #header #background-image:before {
       position: absolute;
       top: 0;
@@ -51,8 +51,7 @@ html, body {
       width: 100%;
       height: 100%;
       content: ' ';
-      background-color: inherit;
-      mix-blend-mode: multiply; }
+      background-color: inherit; }
     #header #background-image:after {
       position: absolute;
       top: 0;
@@ -60,8 +59,7 @@ html, body {
       width: 100%;
       height: 100%;
       content: ' ';
-      background-color: inherit;
-      mix-blend-mode: color; }
+      background-color: inherit; }
 
 .banner {
   padding: 0.5em; }
@@ -125,7 +123,8 @@ h3 {
 #contact {
   text-align: center;
   color: #FFF;
-  background: #4d4d4d; }
+  background: #4d4d4d;
+  padding-bottom: 3em; }
   #contact a {
     transition: all 0.25s ease-in-out; }
     #contact a:hover {
@@ -174,10 +173,6 @@ h3 {
       float: left;
       overflow: hidden;
       margin: 0.5%; }
-      #work #work-cont .example-piece h3 {
-        margin-top: 0.5em;
-        text-transform: capitalize;
-        font-size: 1.5em; }
       #work #work-cont .example-piece:hover .example-bg {
         -webkit-filter: blur(1.5px);
         -moz-filter: blur(1.5px);
@@ -208,15 +203,24 @@ h3 {
         padding: 0.5em 1em;
         transform-origin: bottom center;
         overflow: hidden; }
-      #work #work-cont .example-piece .piece-info, #work #work-cont .example-piece h3 {
-        z-index: 2;
-        position: relative; }
-        #work #work-cont .example-piece .piece-info .type-of-job, #work #work-cont .example-piece h3 .type-of-job {
+        #work #work-cont .example-piece .piece-info h3 {
+          margin-top: 0.5em;
+          margin-bottom: 0;
+          text-transform: capitalize;
+          font-size: 1.5em; }
+        #work #work-cont .example-piece .piece-info .type-of-job {
           font-size: 0.7em;
           text-align: center;
           text-transform: uppercase;
           font-weight: 700;
-          letter-spacing: 0.1em; }
+          letter-spacing: 0.1em;
+          margin: 1em; }
+          #work #work-cont .example-piece .piece-info .type-of-job + p {
+            margin: 0;
+            font-size: 0.9em; }
+      #work #work-cont .example-piece .piece-info, #work #work-cont .example-piece h3 {
+        z-index: 2;
+        position: relative; }
 
 .circle {
   left: 50%;
@@ -237,51 +241,59 @@ h3 {
   .circle#client {
     background-image: url(https://s3.amazonaws.com/typical-agency/images/photos/css-images/preffered-client-group.png); }
 
-.teammate {
-  width: 23%;
-  padding-bottom: 23%;
-  margin: 1%;
-  position: relative;
-  float: left; }
-  .teammate > * {
-    position: absolute;
-    top: 0;
-    left: 0; }
-    .teammate > *.member-background {
-      height: 100%;
-      width: 100%;
-      background-size: cover;
-      background-position: center; }
-    .teammate > *.member-info {
+#team {
+  padding: 1em 0.75em; }
+  #team:after {
+    content: '';
+    display: block;
+    clear: both; }
+  #team > h3 span {
+    text-transform: capitalize; }
+  #team .teammate {
+    width: 23%;
+    padding-bottom: 23%;
+    margin: 1%;
+    position: relative;
+    float: left; }
+    #team .teammate > * {
       position: absolute;
       top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      color: #FFF;
-      transform: scaleY(0);
-      transition: all 0.2s ease-in-out;
-      transform-origin: bottom center; }
-      .teammate > *.member-info.yellow {
-        color: #000; }
-      .teammate > *.member-info > * {
-        position: relative;
-        text-align: center;
-        display: block;
-        font-weight: 900; }
-        .teammate > *.member-info > *.background {
-          position: absolute;
-          top: 0;
-          left: 0;
-          height: 100%;
-          width: 100%;
-          opacity: 0.5; }
-          .teammate > *.member-info > *.background + * {
-            margin-top: 6em; }
-      .teammate > *.member-info > p {
-        font-weight: 300; }
-  .teammate:hover .member-info {
-    transform: scaleY(1); }
+      left: 0; }
+      #team .teammate > *.member-background {
+        height: 100%;
+        width: 100%;
+        background-size: cover;
+        background-position: center; }
+      #team .teammate > *.member-info {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        color: #FFF;
+        transform: scaleY(0);
+        transition: all 0.2s ease-in-out;
+        transform-origin: bottom center; }
+        #team .teammate > *.member-info.yellow {
+          color: #000; }
+        #team .teammate > *.member-info > * {
+          position: relative;
+          text-align: center;
+          display: block;
+          font-weight: 900; }
+          #team .teammate > *.member-info > *.background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            opacity: 0.5; }
+            #team .teammate > *.member-info > *.background + * {
+              margin-top: 6em; }
+        #team .teammate > *.member-info > p {
+          font-weight: 300; }
+    #team .teammate:hover .member-info {
+      transform: scaleY(1); }
 
 #blurb {
   min-height: 30em;
@@ -313,7 +325,9 @@ h3 {
       line-height: 1.7em; }
 
 #clients {
-  padding: 0 5em 5em; }
+  padding: 0.3em 5em 5em; }
+  #clients .client-cont {
+    padding-top: 1.75em; }
   #clients .client {
     display: block;
     position: relative;
@@ -329,12 +343,12 @@ h3 {
   #about #about-text {
     display: block; }
     #about #about-text > * {
-      max-width: none;
-      width: 100%;
-      clear: both; }
-      #about #about-text > * > * {
-        padding: 0 0.5em;
-        text-align: center; }
+      padding: 0.5em 1em 1em;
+      display: inline-block;
+      vertical-align: top; }
+      #about #about-text > * .circle {
+        width: 100%;
+        padding-bottom: 100%; }
   #work #work-cont .example-piece {
     width: 49%; }
     #work #work-cont .example-piece h3 {
@@ -356,4 +370,52 @@ h3 {
       max-height: 5em;
       height: 5em;
       display: inline-block;
-      vertical-align: center; } }
+      vertical-align: center; }
+  #team {
+    padding: 2em 0.25em 0.25em; }
+    #team .teammate {
+      width: 31%;
+      padding-bottom: 31%;
+      margin: 1%; }
+      #team .teammate .member-info .name {
+        margin-top: 2em; }
+      #team .teammate .member-info .title {
+        font-size: 0.8em;
+        margin-top: 0.3em; }
+      #team .teammate .member-info p {
+        margin-top: 0.5em;
+        font-size: 0.9em; } }
+
+@media (max-width: 600px) {
+  #about #about-text {
+    display: block; }
+    #about #about-text > * {
+      max-width: none;
+      width: 100%;
+      clear: both;
+      padding: 0.5em 2em 1em; }
+      #about #about-text > * > * {
+        padding: 0 0.5em;
+        text-align: center; }
+  #team {
+    padding: 2em 0.25em 0.25em; }
+    #team .teammate {
+      width: 48%;
+      padding-bottom: 48%;
+      margin: 1%; }
+      #team .teammate .member-info .name {
+        margin-top: 2em; }
+      #team .teammate .member-info .title {
+        font-size: 0.8em;
+        margin-top: 0.3em; }
+      #team .teammate .member-info p {
+        margin-top: 0.5em;
+        font-size: 0.9em; }
+  #contact h3 {
+    margin-bottom: 0.75em; }
+  #contact #social {
+    display: block;
+    margin-top: 1.5em; }
+    #contact #social a {
+      font-size: 1.75em;
+      margin: 0 0.3em; } }
