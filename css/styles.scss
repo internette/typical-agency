@@ -440,7 +440,53 @@ h3{
     }
   }
 }
-@media (max-width: 960px){
+.error {
+  > div {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  #background {
+    background-image: url(https://s3.amazonaws.com/typical-agency/images/photos/background-images/large/coffee-smartphone-desk-pen.jpg);
+    background-size: cover;
+    background-position: right top;
+  }
+  #content {
+    width: 30%;
+    height: 75vh;
+    top: 20vh;
+    left: 50vw;
+    filter: blur(0.4px);
+    -webkit-filter: blur(0.4px);
+    h3, p, a {
+      font-family: Courier, monospace;
+    }
+    a {
+      color: #795548;
+      text-decoration: none;
+      transition: all 0.1s ease-in-out;
+      display: inline-block;
+      padding-bottom: 0.3em;
+      border-bottom: transparent 2px solid;
+      background-size: 100% 200%;
+      background-image: linear-gradient(to bottom, transparent 97%, rgb(100, 127, 86) 3%);
+      &:hover {
+        background-position: 0% 100%;
+      }
+    }
+  }
+}
+@media all and (max-width: 1050px){
+  .error {
+    #content {
+      width: 35%;
+      left: 45vw;
+    }
+  }
+}
+@media all and (max-width: 960px){
   #about {
     #about-text {
       display: block;
@@ -509,8 +555,44 @@ h3{
       }
     }
   }
+  .error {
+    #content {
+      width: 35%;
+      left: auto;
+      right: 14em;
+    }
+  }
 }
-@media (max-width: 600px){
+@media (max-width: 850px){
+  .error {
+    #content {
+      width: 40%;
+      left: auto;
+      right: 13em;
+    }
+  }
+}
+@media (max-width: 750px){
+  .error {
+    #content {
+      width: 45%;
+      left: auto;
+      right: 14em;
+    }
+  }
+}
+@media all and (max-width: 650px){
+  .error {
+    #content {
+      width: 45vw;
+      right: 10em;
+    }
+    #background {
+      background-position: 85% top;
+    }
+  }
+}
+@media all and (max-width: 600px){
   .mobile-only {
     display: block;
   }
@@ -564,6 +646,17 @@ h3{
         font-size: 1.75em;
         margin: 0 0.3em;
       }
+    }
+  }
+}
+@media all and (max-width: 400px){
+  .error {
+    #content {
+      width: 75vw;
+      right: 15%;
+    }
+    #background {
+      background-position: 75% top;
     }
   }
 }

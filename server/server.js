@@ -9,25 +9,19 @@ var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
 var path = require('path');
 var mongoose = require('mongoose');
+var ObjectId = mongoose.Types.ObjectId;
+var database = require('../server/connect');
 var Data = require('../api/models/data');
-// var Word = require('../api/models/word');
-// var Color = require('../api/models/color');
-// var Images = require('../api/models/image');
-// var Bio = require('../api/models/bio');
-// var Client = require('../api/models/client');
-// var Person = require('../api/models/person');
 
-mongoose.connect('mongodb://twaffles:sakura@ec2-52-73-225-190.compute-1.amazonaws.com:27017/dummyDB'); // connect to our database
-//
-// configure app to use bodyParser()
-// this will let us get the data from a POST
+database.connect();
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-// app.use(function(req, res, next){
-//   res.header('Access-Control-Allow-Origin','*');
-//   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-//   res.header('Access-Control-Allow-Headers', 'Content-Type');
-//   next();
+// app.use(function(err, res, req, next){
+//   res.status(404).sendfile(path.join(__dirname + '/../errors/index.html'));
+// });
+// app.use(function(err, res, req, next){
+//   res.status(500).sendfile(path.join(__dirname + '/../errors/index.html'));
 // });
 
 var port = process.env.PORT || 8080;        // set our port
@@ -38,21 +32,21 @@ var port = process.env.PORT || 8080;        // set our port
 var router = express.Router();              // get an instance of the express Router
 // middleware to use for all requests
 router.use(function(req, res, next) {
-    // do logging
-    console.log('Something is happening.');
     next(); // make sure we go to the next routes and don't stop here
 });
 
-// test route to make sure everything is working (accessed at GET http://localhost:8080/api)
 app.use(express.static(path.join(__dirname + '/../')));
 router.route('/').get(function(req, res) {
-  res.sendFile(path.join(__dirname + '/../index.html'));
+  res.sendfile(path.join(__dirname + '/../index.html'));
 });
+// router.route('/:error').get(function(req, res){
+//   console.log(res)
+// });
 router.route('/team').get(function(req, res) {
-  res.sendFile(path.join(__dirname + '/../team/index.html'));
+  res.sendfile(path.join(__dirname + '/../team/index.html'));
 });
 router.route('/api').get(function(req, res) {
-  res.sendFile(path.join(__dirname + '/../api/index.html'));
+  res.sendfile(path.join(__dirname + '/../api/index.html'));
 });
 
 // more routes for our API will happen here
@@ -60,83 +54,46 @@ router.route('/api').get(function(req, res) {
 // ----------------------------------------------------
 router.route('/api/:name').get(function(req, res) {
   var name = '$'+req.params.name;
-  Data.aggregate([{$project: {data: name}}], function(err, data){
-    res.jsonp(data[0].data);
-  })
+  if(req.params.name.match(/\d/gi)){
+    // console.log('this is not a valid path');
+    // res.sendfile(path.join(__dirname + '/../errors/index.html'));
+    res.sendStatus(404);
+  } else {
+    Data.aggregate([{$project: {data: name}}], function(err, data){
+      res.jsonp(data[0].data);
+    })
+  }
 });
 router.route('/api/:name/:subname').get(function(req, res) {
-  var name = '$'+req.params.name + '.' + req.params.subname;
-  Data.aggregate([{$project: {data: name}}], function(err, data){
-    res.jsonp(data[0].data);
-  })
+  var name = '$'+req.params.name;
+  var query = '$' + req.params.name + '.' + req.params.subname + '.images';
+  if(req.params.name.match(/\d/gi) || req.params.subname.match(/\d/gi)){
+    // console.log('this is not a valid path');
+    // res.sendfile(path.join(__dirname + '/../errors/index.html'));
+    res.sendStatus(404);
+  } else {
+    if(Object.keys(req.query).length === 0){
+      Data.aggregate([{$unwind: '$images.images'}, {$match: {'images.images.category': req.params.subname}}, {$group: {_id: '$_id', 'images': {$push: '$images'}}}, {$project: {images: '$images.images'}}], function(err, data){
+        res.jsonp(data[0]);
+      })
+    } else {
+      if(req.query.hasOwnProperty('type')){
+        Data.aggregate([{$unwind: '$images.images'}, {$match: {'images.images.type': req.query.type}}, {$group: {_id: '$_id', 'images': {$push: '$images'}}}, {$project: {images: '$images.images'}}], function(err, data){
+          res.jsonp(data[0]);
+        })
+      } else if(req.query.id.match(/\d/gi)){
+        Data.aggregate([{$unwind: '$images.images'}, {$match: {'images.images._id': new ObjectId(req.query.id)}}, {$group: {_id: '$_id', 'images': {$push: '$images'}}}, {$project: {images: '$images.images'}}], function(err, data){
+          res.jsonp(data[0]);
+        })
+      }
+    }
+  }
 });
-router.route('/api/:name/:subname/:type').get(function(req, res) {
-  var name = '$'+req.params.name+'.'+req.params.subname+'.'+req.params.type;
-  Data.aggregate([{$project: {data: name}}], function(err, data){
-    res.jsonp(data[0].data);
-  })
-});
-// router.route('/api/words/buzzwords').get(function(req, res) {
-//     Word.find(function(err, words) {
-//         if (err)
-//             res.send(err);
-//
-//         res.jsonp(words[0].toJSON().buzzwords);
-//     });
-// });
-  // router.route('/api/images/backgrounds').get(function(req,res){
-  //   Images.find(function(err, images) {
-  //     if (err)
-  //       res.send(err);
-  //
-  //     res.jsonp(JSON.parse('{"_id": "YtLT8trw4SBz", "images":'+JSON.stringify(images[0].toJSON().photos.backgrounds)+'}'));
-  //   });
-  // });
-  // router.route('/api/images/projects').get(function(req,res){
-  //     Images.find(function(err, images) {
-  //       console.log(images);
-  //       if (err)
-  //         res.send(err);
-  //
-  //       res.jsonp(images);
-  //     });
-  //   });
-    router.route('/api/images/projects/web').get(function(req,res){
-      Images.find(function(err, images) {
-        if (err)
-          res.send(err);
-
-        res.jsonp(JSON.parse('{"_id": "QXefByhEm8v9", "images":'+JSON.stringify(images[0].toJSON().photos.projects.web)+'}'));
-      });
-    });
-    router.route('/api/images/projects/marketing').get(function(req,res){
-      Images.find(function(err, images) {
-        if (err)
-          res.send(err);
-
-        res.jsonp(JSON.parse('{"_id": "vMLdeLxMUDLr", "images":'+JSON.stringify(images[0].toJSON().photos.projects.marketing)+'}'));
-      });
-    });
-    router.route('/api/images/projects/brand').get(function(req,res){
-      Images.find(function(err, images) {
-        if (err)
-          res.send(err);
-
-        res.jsonp(JSON.parse('{"_id": "DzxEgXSdEQd2", "images":'+JSON.stringify(images[0].toJSON().photos.projects.brand)+'}'));
-      });
-    });
-    router.route('/api/images/projects/:type/:id').get(function(req,res){
-      Images.find({'photos.projects.*.id':req.params.id}, function(err, images) {
-        console.log(images);
-        if (err)
-          res.send(err);
-
-        res.jsonp(images);
-      });
-    });
 // REGISTER OUR ROUTES -------------------------------
 app.use('/', router);
-
+app.use(function(req, res, next) {
+  res.status(404).sendfile(path.join(__dirname + '/../errors/index.html'));
+});
 // START THE SERVER
 // =============================================================================
 app.listen(port);

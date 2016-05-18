@@ -368,7 +368,45 @@ h3 {
       max-width: 80%;
       max-height: 3em; }
 
-@media (max-width: 960px) {
+.error > div {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+.error #background {
+  background-image: url(https://s3.amazonaws.com/typical-agency/images/photos/background-images/large/coffee-smartphone-desk-pen.jpg);
+  background-size: cover;
+  background-position: right top; }
+
+.error #content {
+  width: 30%;
+  height: 75vh;
+  top: 20vh;
+  left: 50vw;
+  filter: blur(0.4px);
+  -webkit-filter: blur(0.4px); }
+  .error #content h3, .error #content p, .error #content a {
+    font-family: Courier, monospace; }
+  .error #content a {
+    color: #795548;
+    text-decoration: none;
+    transition: all 0.1s ease-in-out;
+    display: inline-block;
+    padding-bottom: 0.3em;
+    border-bottom: transparent 2px solid;
+    background-size: 100% 200%;
+    background-image: linear-gradient(to bottom, transparent 97%, #647f56 3%); }
+    .error #content a:hover {
+      background-position: 0% 100%; }
+
+@media all and (max-width: 1050px) {
+  .error #content {
+    width: 35%;
+    left: 45vw; } }
+
+@media all and (max-width: 960px) {
   #about #about-text {
     display: block; }
     #about #about-text > * {
@@ -413,9 +451,32 @@ h3 {
         margin-top: 0.3em; }
       #team .teammate .member-info p {
         margin-top: 0.5em;
-        font-size: 0.9em; } }
+        font-size: 0.9em; }
+  .error #content {
+    width: 35%;
+    left: auto;
+    right: 14em; } }
 
-@media (max-width: 600px) {
+@media (max-width: 850px) {
+  .error #content {
+    width: 40%;
+    left: auto;
+    right: 13em; } }
+
+@media (max-width: 750px) {
+  .error #content {
+    width: 45%;
+    left: auto;
+    right: 14em; } }
+
+@media all and (max-width: 650px) {
+  .error #content {
+    width: 45vw;
+    right: 10em; }
+  .error #background {
+    background-position: 85% top; } }
+
+@media all and (max-width: 600px) {
   .mobile-only {
     display: block; }
   .desktop-only {
@@ -452,3 +513,10 @@ h3 {
     #contact #social a {
       font-size: 1.75em;
       margin: 0 0.3em; } }
+
+@media all and (max-width: 400px) {
+  .error #content {
+    width: 75vw;
+    right: 15%; }
+  .error #background {
+    background-position: 75% top; } }
