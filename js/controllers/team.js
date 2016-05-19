@@ -1,18 +1,7 @@
 typicalAgency.controller('Team', ['$scope', '$http', '$window', 'agencyName', function($scope, $http, $window, agencyName){
-  // agencyName.then(function(data){
-  //   $scope.agencyName = $window.sessionStorage.getItem("agencyName");
-  // });
-  if(!$window.sessionStorage.getItem("agencyName")){
-    agencyName.then(function(data){
-      $scope.agencyName = data;
-    });
-  } else {
-    $scope.agencyName = $window.sessionStorage.getItem("agencyName");
-  }
   $scope.agencyName = $window.sessionStorage.getItem("agencyName");
   $http.get('/api/people')
   .success(function(data){
-    if()
     var team = [];
     var i = randNum(0, (data.persons.length-1))
     while (team.length < 12){

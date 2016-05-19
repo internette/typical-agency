@@ -13,4 +13,11 @@ typicalAgency.controller('FaviconSubpage', ['$scope', 'brandColor', '$window', f
       $scope.brandColorName = $window.sessionStorage.getItem("brandColorName");
     }
   });
+  agencyName.then(function(data){
+    if($window.sessionStorage.getItem("agencyName")===null){
+      $scope.agencyName = data;
+    } else {
+      $scope.agencyName = $window.sessionStorage.getItem("agencyName");
+    }
+  });
 }]);
