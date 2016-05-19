@@ -5,7 +5,6 @@ typicalAgency.controller('navLink', function($scope, $window, $document, $locati
   $scope.scrollDirection = 'down';
   $scope.clickEvent = function($event){
     $event.preventDefault();
-    console.log($event.target.parentNode.parentNode.parentNode.parentNode);
     if ($event.target.id.match(/menu-btn/gi)){
       if($event.target.nextElementSibling.className.match(/active/gi)){
         $event.target.nextElementSibling.className = $event.target.nextElementSibling.className.replace(/ active/gi,'');

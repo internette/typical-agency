@@ -1,6 +1,6 @@
 typicalAgency.controller('Footer', function($scope, $http, agencyName, $window, brandColor){
   agencyName.then(function(data){
-    $scope.agencyName = $window.sessionStorage.getItem("agencyName").toLowerCase();
+    $scope.agencyName = $window.sessionStorage.getItem("agencyName");
     if($scope.agencyName.match(/ /gi)){
       $scope.agencyName = $scope.agencyName.replace(/ /gi,'_');
     }
