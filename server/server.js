@@ -55,36 +55,47 @@ router.route('/api').get(function(req, res) {
 router.route('/api/:name').get(function(req, res) {
   var name = '$'+req.params.name;
   if(req.params.name.match(/\d/gi)){
-    // console.log('this is not a valid path');
-    // res.sendfile(path.join(__dirname + '/../errors/index.html'));
     res.sendStatus(404);
   } else {
     Data.aggregate([{$project: {data: name}}], function(err, data){
       res.jsonp(data[0].data);
-    })
+    });
   }
 });
 router.route('/api/:name/:subname').get(function(req, res) {
-  var name = '$'+req.params.name;
-  var query = '$' + req.params.name + '.' + req.params.subname + '.images';
+  var name = '$'+req.params.name+'.'+req.params.name;
+  var query = req.params.name+'.'+req.params.name+'.category';
   if(req.params.name.match(/\d/gi) || req.params.subname.match(/\d/gi)){
-    // console.log('this is not a valid path');
-    // res.sendfile(path.join(__dirname + '/../errors/index.html'));
     res.sendStatus(404);
   } else {
     if(Object.keys(req.query).length === 0){
-      Data.aggregate([{$unwind: '$images.images'}, {$match: {'images.images.category': req.params.subname}}, {$group: {_id: '$_id', 'images': {$push: '$images'}}}, {$project: {images: '$images.images'}}], function(err, data){
-        res.jsonp(data[0]);
-      })
-    } else {
-      if(req.query.hasOwnProperty('type')){
-        Data.aggregate([{$unwind: '$images.images'}, {$match: {'images.images.type': req.query.type}}, {$group: {_id: '$_id', 'images': {$push: '$images'}}}, {$project: {images: '$images.images'}}], function(err, data){
+      if(req.params.subname === 'projects' || req.params.subname === 'backgrounds'){
+        Data.aggregate([{$unwind: name}, {$match: {'images.images.category': req.params.subname}}, {$group: {_id: '$_id', 'images': {$push: '$images'}}}, {$project: {images: '$images.images'}}], function(err, data){
           res.jsonp(data[0]);
         })
+      } else {
+        Data.aggregate([{$unwind: name}, {$match: {'words.words.category': req.params.subname}}, {$group: {_id: '$_id', 'words': {$push: '$words'}}}, {$project: {words: '$words.words'}}], function(err, data){
+          res.jsonp(data[0]);
+        })
+      }
+    } else {
+      if(req.query.hasOwnProperty('type')){
+        if(req.params.name === 'images'){
+          Data.aggregate([{$unwind: '$images.images'}, {$match: {'images.images.type': req.query.type}}, {$group: {_id: '$_id', 'images': {$push: '$images'}}}, {$project: {images: '$images.images'}}], function(err, data){
+            res.jsonp(data[0]);
+          })
+        } else {
+          Data.aggregate([{$unwind: '$words.words'}, {$match: {'words.words.type': req.query.type}}, {$group: {_id: '$_id', 'words': {$push: '$words'}}}, {$project: {words: '$words.words'}}], function(err, data){
+            res.jsonp(data[0]);
+          })
+        }
       } else if(req.query.id.match(/\d/gi)){
         Data.aggregate([{$unwind: '$images.images'}, {$match: {'images.images._id': new ObjectId(req.query.id)}}, {$group: {_id: '$_id', 'images': {$push: '$images'}}}, {$project: {images: '$images.images'}}], function(err, data){
           res.jsonp(data[0]);
         })
+      } else {
+        var name = '$'+req.params.name;
+        var query = '$' + req.params.name + '.' + req.params.subname;
       }
     }
   }

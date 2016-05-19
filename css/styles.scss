@@ -237,11 +237,11 @@ h3{
       margin: 0.5%;
       &:hover{
        .example-bg {
-         -webkit-filter: blur(1.5px);
-         -moz-filter: blur(1.5px);
-         -o-filter: blur(1.5px);
-         -ms-filter: blur(1.5px);
-         filter: blur(1.5px);
+         -webkit-filter: blur(1.75px);
+         -moz-filter: blur(1.75px);
+         -o-filter: blur(1.75px);
+         -ms-filter: blur(1.75px);
+         filter: blur(1.75px);
        }
        .piece-info{
          transform: scaleY(1);
