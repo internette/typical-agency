@@ -1,4 +1,4 @@
-typicalAgency.controller('FaviconSubpage', ['$scope', 'brandColor', '$window', 'agencyName', function($scope, brandColor, agencyName, $window){
+typicalAgency.controller('FaviconSubpage', ['$scope', 'brandColor', '$window', 'agencyName', function($scope, brandColor, $window, agencyName){
   brandColor.then(function(data){
     if($window.sessionStorage.getItem("brandColorValue")===null){
       $window.sessionStorage.setItem("brandColorValue", data.value);
