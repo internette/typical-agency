@@ -1,7 +1,11 @@
-typicalAgency.controller('Header', ['$scope', '$http', '$window', 'agencyName', function($scope, $http, $window, agencyName){
-  $scope.agencyName = $window.sessionStorage.getItem("agencyName");
-  $scope.brandColorValue = $window.sessionStorage.getItem("brandColorValue");
-  $scope.brandColorName = $window.sessionStorage.getItem("brandColorName");
+typicalAgency.controller('Header', ['$scope', '$http', '$window', 'agencyName', 'brandColor', function($scope, $http, $window, agencyName, brandColor){
+  brandColor.then(function(data){
+    $scope.brandColorValue = $window.sessionStorage.getItem("brandColorValue");
+    $scope.brandColorName = $window.sessionStorage.getItem("brandColorName");
+  });
+  agencyName.then(function(){
+    $scope.agencyName = $window.sessionStorage.getItem("agencyName");
+  });
   $http.get('/api/words/buzzwords?type=business')
   .success(function(data){
     var busWords = data.words;

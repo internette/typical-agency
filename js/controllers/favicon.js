@@ -5,4 +5,8 @@ typicalAgency.controller('Favicon', ['$scope', 'brandColor', '$window', 'agencyN
     $scope.brandColorValue = $window.sessionStorage.getItem("brandColorValue");
     $scope.brandColorName = $window.sessionStorage.getItem("brandColorName");
   });
+  agencyName.then(function(data){
+    $window.sessionStorage.setItem("agencyName", data);
+    $scope.agencyName = $window.sessionStorage.getItem("agencyName");
+  });
 }]);
