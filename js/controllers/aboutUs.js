@@ -16,9 +16,12 @@ typicalAgency.controller('aboutUs', function($scope, $http){
       brief: "We wouldn't be here without you, the client. That's why we put your needs first. You're part of the process, from beginning to end."
     }
   ];
-  $http.get('/api/words/buzzwords')
+  $http.get('/api/words/buzzwords?type=tech')
   .success(function(data){
-    $scope.techBuzz = data.tech.tech[randNum(0, data.tech.tech.length-1)];
-    $scope.busBuzz = data.business.business[randNum(0, data.business.business.length-1)];
+    $scope.techBuzz = data.words[randNum(0, data.words.length-1)].word;
+  });
+  $http.get('/api/words/buzzwords?type=business')
+  .success(function(data){
+    $scope.busBuzz = data.words[randNum(0, data.words.length-1)].word;
   });
 });

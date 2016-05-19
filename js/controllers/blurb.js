@@ -1,4 +1,4 @@
-typicalAgency.controller('Blurb', ['$scope', 'brandColor', '$window', '$http', 'agencyName', function($scope, brandColor, $window, $http, agencyName){
+typicalAgency.controller('Blurb', ['$scope', 'brandColor', '$window', '$http', function($scope, brandColor, $window, $http){
   brandColor.then(function(data){
     $scope.brandColorValue = $window.sessionStorage.getItem("brandColorValue");
     $scope.brandColorName = $window.sessionStorage.getItem("brandColorName");

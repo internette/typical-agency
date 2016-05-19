@@ -7,19 +7,19 @@ typicalAgency.controller('Header', ['$scope', '$http', 'brandColor', '$window', 
     $window.sessionStorage.setItem("agencyName", data);
     $scope.agencyName = $window.sessionStorage.getItem("agencyName");
   });
-  $http.get('/api/words')
+  $http.get('/api/words/buzzwords?type=business')
   .success(function(data){
-    var words = data;
-    var buzzwords = words.buzzwords;
-    var techBuzz = buzzwords.tech.tech;
-    var busBuzz = buzzwords.business.business;
-    $scope.slogan = "The "+busBuzz[randNum(0, busBuzz.length-1)] + ' of '+techBuzz[randNum(0, techBuzz.length-1)];
+    var busWords = data.words;
+    $scope.slogan = "The "+busWords[randNum(0, busWords.length-1)].word;
+    $http.get('/api/words/buzzwords?type=tech').success(function(data){
+      var techWords = data.words;
+      $scope.slogan +=  ' of '+techWords[randNum(0, techWords.length-1)].word;
+    });
   })
   .error(function(data, status, headers, config) {});
-  $http.get('/api/images').success(function(data){
-    var images = data;
-    var backgrounds = images.backgrounds.backgrounds;
-    $scope.background = backgrounds[randNum(0, backgrounds.length-1)].large.url;
+  $http.get('/api/images/backgrounds').success(function(data){
+    var images = data.images;
+    $scope.background = images[randNum(0, images.length-1)].large.url;
     })
     .error(function(data, status, headers, config){});
     if($window.sessionStorage.getItem("agencyName").match(/ /gi)){

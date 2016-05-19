@@ -1,20 +1,23 @@
 typicalAgency.service('agencyName', ['$http', '$window', function($http, $window) {
-  return $http.get('/api/words')
+  var compName = '';
+  var firstWord = '';
+  return $http.get('/api/words/firstwords')
   .then(function(data){
-    var words = data.data;
-    var compFirstWords =  words.firstwords.firstwords;
-    var compSecondWords =  words.secondwords.secondwords;
-    var firstWord = compFirstWords[randNum(0, compFirstWords.length-1)];
-    var secondWord = compSecondWords[randNum(0, compSecondWords.length-1)];
-    var compName = (function(){
-      if(secondWord === 'ster'){
-        return firstWord + secondWord;
-      } else if (secondWord.match(/inc/gi)){
-        return firstWord + ', ' + secondWord
-      } else {
-        return firstWord + ' ' + secondWord
-      }
-    })();
-    return compName;
+    var words = data.data.words;
+    var firstCompWord = words[randNum(0, words.length-1)].word;
+    return $http.get('/api/words/secondwords').then(function(data){
+      var secondwords = data.data.words;
+      var secondCompWord = secondwords[randNum(0, secondwords.length-1)].word;
+      var compName = (function(){
+        if(secondCompWord === 'ster'){
+          return firstCompWord + secondCompWord;
+        } else if (secondCompWord.match(/inc/gi)){
+          return firstCompWord + ', ' + secondCompWord
+        } else {
+          return firstCompWord + ' ' + secondCompWord
+        }
+      })();
+      return compName;
+    });
   });
 }]);
