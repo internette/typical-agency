@@ -15,7 +15,8 @@ typicalAgency.controller('FaviconSubpage', ['$scope', 'brandColor', '$window', '
   });
   agencyName.then(function(data){
     if($window.sessionStorage.getItem("agencyName")===null){
-      $scope.agencyName = data;
+      $window.sessionStorage.setItem("agencyName", data);
+      $scope.agencyName = $window.sessionStorage.getItem("agencyName");
     } else {
       $scope.agencyName = $window.sessionStorage.getItem("agencyName");
     }
