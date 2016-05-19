@@ -1,8 +1,5 @@
 typicalAgency.controller('Header', ['$scope', '$http', '$window', 'agencyName', function($scope, $http, $window, agencyName){
-  agencyName.then(function(data){
-    $window.sessionStorage.setItem("agencyName", data);
-    $scope.agencyName = $window.sessionStorage.getItem("agencyName");
-  });
+  $scope.agencyName = $window.sessionStorage.getItem("agencyName");
   $scope.brandColorValue = $window.sessionStorage.getItem("brandColorValue");
   $scope.brandColorName = $window.sessionStorage.getItem("brandColorName");
   $http.get('/api/words/buzzwords?type=business')
