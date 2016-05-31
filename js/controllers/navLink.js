@@ -17,8 +17,5 @@ typicalAgency.controller('navLink', function($scope, $window, $document, $locati
     } else if ($event.target.parentNode.parentNode.parentNode.parentNode.id === 'nav' && !$event.target.id.match(/menu-btn/gi)){
       window.location = $location.$$absUrl.split(/\/team/gi)[0]
     }
-    // else {
-    //   window.location = $location.$$absUrl.split(/\/team/gi)[0]
-    // }
   }
 });

@@ -2,14 +2,13 @@
 <html>
 <head>
   <link rel="stylesheet" href="../css/api-doc-styles.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
   <script src="../js/api-functions.js"></script>
 </head>
 <body>
   <div id="header">
     <div id="cont">
-      <h1>Typical.Agency</h1>
-      <h2>the typical documentation</h2>
+      <h1><a href="http://typical.agency">Typical.Agency</a></h1>
+      <h2><a href="http://typical.agency/api">the typical documentation</a></h2>
     </div>
   </div>
   <div id="container">
@@ -35,9 +34,18 @@
                 <a href="#">GET <span>/images</span></a>
               </li>
               <li>
+                <a href="#">GET <span>/people</span></a>
+              </li>
+              <li>
                 <a href="#">GET <span>/words</span></a>
               </li>
             </ul>
+          </li>
+          <li>
+            <a href="#">Future Updates</a>
+          </li>
+          <li>
+            <a href="/api/test">Test the API</a>
           </li>
         </ul>
       </div>
@@ -46,7 +54,7 @@
           <div id="intro">
             <h3>Intro</h3>
             <p>
-              Welcome to Typical.Agency's API documentation page. This is a RESTful api built by <a href="http://acjanus.com" target="_blank">Antoinette Janus</a> that powers the website <a href="http://typical.agency">typical.agency</a>, a project created also by Antoinette Janus.
+              Welcome to Typical.Agency's API documentation page. This is a RESTful api built by <a href="http://acjanus.co" target="_blank">Antoinette Janus</a> that powers the website <a href="http://typical.agency">typical.agency</a>, a project created also by Antoinette Janus.
             </p>
             <h4>Why should I use this?</h4>
             <p>
@@ -56,15 +64,107 @@
           <div id="endpoints">
             <h3>Endpoints</h3>
             <p>
-              The Typical.Agency REST API contains 5 main endpoints: bios, clients, images, colors, and words. Below are the endpoints and the outputs.
+              The Typical.Agency REST API contains 6 main endpoints: bios, clients, images, colors, people, and words. Every API call begins with <a href="http://typical-agency.com">http://typical-agency.com</a>. Below are the endpoints and the outputs.
             </p>
-            <h4>/bio</h4>
+            <h4>/bios</h4>
             <span class="endpoint-title"><b>Type</b>: GET</span>
             <p>
               This endpoint provides generic biographies for any company as well as a correlating image. These can be used as slogans, mottos, and simple About blurbs.
             </p>
-            <b>Output:</b>
-            <code id="bio"></code>
+            <h4>/colors</h4>
+            <span class="endpoint-title"><b>Type</b>: GET</span>
+            <p>
+              This endpoint provides generic colors and their respective names. The colors chosen are all of the colors from the <a href="https://www.google.com/design/spec/style/color.html#color-color-palette" target="_blank">Google Material Design</a> scheme, including their names.
+            </p>
+            <h4>/clients</h4>
+            <span class="endpoint-title"><b>Type</b>: GET</span>
+            <p>
+              This endpoint provides a diverse list of well-known companies, their logos, and their URLs. Some of the companies includes are Facebook, McDonalds, Nike.
+            </p>
+            <h4>/images</h4>
+            <span class="endpoint-title"><b>Type</b>: GET</span>
+            <p>
+              This endpoint provides generic images of two categories: projects and backgrounds. The images come in 4 sizes in terms of their widths:
+            </p>
+            <ol>
+              <li>Original</li>
+              <li>Large (1024px)</li>
+              <li>Medium (800px)</li>
+              <li>Small (500px)</li>
+            </ol>
+            <p>The images are all from either <a href="https://creativecommons.org/" target="_blank">Creative Commons</a> or <a href="https://www.pexels.com/" target="_blank">Pexels</a>, both allowing for modifications of images and any form of usage.</p>
+            <p>The endpoint can be filtered into the following endpoints, if you want limited results (and a faster return time):</p>
+            <ul>
+              <li>/images?category=backgrounds</li>
+              <li>/images?category=projects</li>
+            </ul>
+            <h4 class="sub-cat">/images?category=backgrounds</h4>
+            <span class="endpoint-title"><b>Type</b>: GET</span>
+            <p>This endpoint can be used to return background-type images, such as <a href="https://s3.amazonaws.com/typical-agency/images/photos/background-images/small/apple-iphone-desk-office.jpg" target="_blank">desk tops</a> and <a href="https://s3.amazonaws.com/typical-agency/images/photos/background-images/large/laptop-coffee.jpg" target="_blank">workplaces</a>.</p>
+            <h4 class="sub-cat">/images?category=projects</h4>
+            <span class="endpoint-title"><b>Type</b>: GET</span>
+            <p>This endpoint can be used to return project-type images. The types of images returned are divided into the following categories:</p>
+            <ul>
+              <li>Branding <span class="query">?category=backgrounds&type=brand</span></li>
+              <li>Web Sites <span class="query">?category=backgrounds&type=web</span></li>
+              <li>Marketing <span class="query">?category=backgrounds&type=marketing</span></li>
+            </ul>
+            <p> Or, if you like a particular image, you can always us the query <span class="query">?id=[ID NUMBER]</span> to retrieve only the one image.</p>
+            <h4>/people</h4>
+            <span class="endpoint-title"><b>Type</b>: GET</span>
+            <p>
+              This endpoint provides generic images of individuals, cropped in a "unique" way. The images come in 3 sizes:
+              <ol>
+                <li>Large (800x800px)</li>
+                <li>Medium (500x500px)</li>
+                <li>Small (300x300px)</li>
+              </ol>
+            </p>
+            <h4>/words</h4>
+            <span class="endpoint-title"><b>Type</b>: GET</span>
+            <p>
+              This endpoint provides three different kinds of single words that are rather generic:
+            </p>
+            <ul>
+              <li>Buzzwords <span class="query">?category=buzzwords</span></li>
+              <li>First Words <span class="query">?category=firstwords</span></li>
+              <li>Second Words <span class="query">?category=secondwords</span></li>
+            </ul>
+            <h4 class="sub-cat">/words?category=buzzwords</h4>
+            <span class="endpoint-title"><b>Type</b>: GET</span>
+            <p>This endpoint can be used to return different types of buzzwords, including tech and business.</p>
+            <ul>
+              <li>Tech <span class="query">?category=buzzwords&type=tech</span></li>
+              <li>Business <span class="query">?category=buzzwords&type=business</span></li>
+            </ul>
+            <h4 class="sub-cat">/words?category=firstwords</h4>
+            <span class="endpoint-title"><b>Type</b>: GET</span>
+            <p>This endpoint can be used to return different types of generic tech words found in company names.</p>
+            <h4 class="sub-cat">/words?category=secondwords</h4>
+            <span class="endpoint-title"><b>Type</b>: GET</span>
+            <p>This endpoint can be used to return different types of generic business words found in company names.</p>
+          </div>
+          <div id="to-come">
+            <h4>Things to come</h4>
+            <p>Below are a future plans related to the api, in no particular order.</p>
+            <ul>
+              <li>
+                <b>Pagination</b>
+                <p>Currently, the API returns all results, which can bog down a return on the client side. Pagination helps on the return, limiting the retrieval content but speeding up the return. As the content grows, this will help both on the server and client side.</p>
+              </li>
+              <li>
+                <b>Limits</b>
+                <p>Currently, the API returns all results, which can bog down a return on the client side. In combination with pagination, limits help in returning even less data, speeding up the client side retrieval.</p>
+              </li>
+              <li>
+                <b>Skips</b>
+                <p>Currently, the API has no skip function because there is no limit query. When limits are in place, skips will allow for the user to combine their query with limits to retrieve not only the first x results, but x results at any position.</p>
+              </li>
+              <li>
+                <b>Renaming first and second</b>
+                <p>First and Second Words (<span class="query">?category=firstwords</span> and <span class="query">?category=secondwords</span>) were appropriate for the original <a href="http://typical.agency" target="_blank">Typical.Agency</a>, when it was a <a href="codepen.io/acjdesigns/full/MyXqVq" target="_blank">Codepen</a>, but now the project has progressed. The API and names will reflect this in future updates.</p>
+              </li>
+            </ul>
           </div>
         </div>
       </div>

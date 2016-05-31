@@ -19,7 +19,7 @@
   <div id="nav" ng-controller="navLink" style="background-color: {{brandColorValue}}">
     <div id="hamburger" class="mobile-only">
       <a href="" id="menu-btn" ng-click="clickEvent($event)"></a>
-      <ul class="mobile-only">
+      <ul class="mobile-only" style="background-color: {{brandColorValue}}">
         <nav-link ng-repeat="link in links" link="link" ng-click="clickEvent($event)"></nav-link>
         <li><a href="/team">Team</a>
       </ul>

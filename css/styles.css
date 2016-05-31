@@ -203,11 +203,11 @@ h3 {
       overflow: hidden;
       margin: 0.5%; }
       #work #work-cont .example-piece:hover .example-bg {
-        -webkit-filter: blur(1.5px);
-        -moz-filter: blur(1.5px);
-        -o-filter: blur(1.5px);
-        -ms-filter: blur(1.5px);
-        filter: blur(1.5px); }
+        -webkit-filter: blur(1.75px);
+        -moz-filter: blur(1.75px);
+        -o-filter: blur(1.75px);
+        -ms-filter: blur(1.75px);
+        filter: blur(1.75px); }
       #work #work-cont .example-piece:hover .piece-info {
         transform: scaleY(1); }
       #work #work-cont .example-piece .example-bg {
@@ -283,7 +283,8 @@ h3 {
     padding-bottom: 23%;
     margin: 1%;
     position: relative;
-    float: left; }
+    float: left;
+    overflow: hidden; }
     #team .teammate > * {
       position: absolute;
       top: 0;
@@ -292,7 +293,8 @@ h3 {
         height: 100%;
         width: 100%;
         background-size: cover;
-        background-position: center; }
+        background-position: center;
+        transition: all 0.25s ease-in-out; }
       #team .teammate > *.member-info {
         position: absolute;
         top: 0;
@@ -321,6 +323,12 @@ h3 {
               margin-top: 6em; }
         #team .teammate > *.member-info > p {
           font-weight: 300; }
+    #team .teammate:hover .member-background {
+      -webkit-filter: blur(1.75px);
+      -moz-filter: blur(1.75px);
+      -o-filter: blur(1.75px);
+      -ms-filter: blur(1.75px);
+      filter: blur(1.75px); }
     #team .teammate:hover .member-info {
       transform: scaleY(1); }
 

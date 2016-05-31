@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+  <link rel="stylesheet" href="../css/api-doc-styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+  <script src="../js/api-functions.js"></script>
+  <link ng-controller="Favicon" rel='shortcut icon' href='../favicons/favicon-pink.png' type='image/x-icon' />
+</head>
+<body>
+  <div id="header">
+    <div id="cont">
+      <h1><a href="http://typical.agency">Typical.Agency</a></h1>
+      <h2><a href="http://typical.agency/api">the typical documentation</a></h2>
+    </div>
+  </div>
+  <div id="container">
+    <div class="wrapper" id="tester">
+      <div id="content">
+        <h4>API Call Tester</h4>
+        <div id="tester">
+          <div id="search">
+            <label for="query"><b>GET</b> http://typical.agency/api/</label><input id="query" name="query" type="text"/>
+            <input type="submit" value="Submit Query"/>
+          </div>
+          <div id="loading">
+            <p>Loading</p>
+            <div id="loader">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <pre id="result">
+          </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

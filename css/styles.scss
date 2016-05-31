@@ -336,6 +336,7 @@ h3{
     margin: 1%;
     position: relative;
     float: left;
+    overflow: hidden;
     > * {
       position: absolute;
       top: 0;
@@ -345,6 +346,7 @@ h3{
         width: 100%;
         background-size: cover;
         background-position: center;
+        transition: all 0.25s ease-in-out;
       }
       &.member-info {
         position: absolute;
@@ -382,6 +384,13 @@ h3{
       }
     }
     &:hover {
+      .member-background {
+        -webkit-filter: blur(1.75px);
+        -moz-filter: blur(1.75px);
+        -o-filter: blur(1.75px);
+        -ms-filter: blur(1.75px);
+        filter: blur(1.75px);
+      }
       .member-info {
         transform: scaleY(1);
       }

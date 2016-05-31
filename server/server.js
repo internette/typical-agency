@@ -39,14 +39,26 @@ app.use(express.static(path.join(__dirname + '/../')));
 router.route('/').get(function(req, res) {
   res.sendfile(path.join(__dirname + '/../index.html'));
 });
-// router.route('/:error').get(function(req, res){
-//   console.log(res)
-// });
+router.route('/about').get(function(req, res){
+  res.sendfile(path.join(__dirname + '/../index.html'));
+});
+router.route('/clients').get(function(req, res){
+  res.sendfile(path.join(__dirname + '/../index.html'));
+});
+router.route('/contact').get(function(req, res){
+  res.sendfile(path.join(__dirname + '/../index.html'));
+});
+router.route('/work').get(function(req, res){
+  res.sendfile(path.join(__dirname + '/../index.html'));
+});
 router.route('/team').get(function(req, res) {
   res.sendfile(path.join(__dirname + '/../team/index.html'));
 });
 router.route('/api').get(function(req, res) {
   res.sendfile(path.join(__dirname + '/../api/index.html'));
+});
+router.route('/tester').get(function(req, res) {
+  res.sendfile(path.join(__dirname + '/../api/test/index.html'));
 });
 
 // more routes for our API will happen here
@@ -55,11 +67,116 @@ router.route('/api').get(function(req, res) {
 router.route('/api/:name').get(function(req, res) {
   var name = '$'+req.params.name;
   if(req.params.name.match(/\d/gi)){
-    res.sendStatus(404);
+    // res.sendStatus(404);
+    res.send('This is not a valid endpoint');
+  } else if(!req.params.name.match(/images/gi) &&
+  !req.params.name.match(/clients/gi) &&
+  !req.params.name.match(/words/gi) &&
+  !req.params.name.match(/people/gi) &&
+  !req.params.name.match(/bios/gi) &&
+  !req.params.name.match(/colors/gi)){
+    console.log(req.params);
+    res.send('This is an invalid endpoint');
   } else {
-    Data.aggregate([{$project: {data: name}}], function(err, data){
-      res.jsonp(data[0].data);
-    });
+    if(Object.keys(req.query).length === 0){
+      Data.aggregate([{$project: {data: name}}], function(err, data){
+        res.jsonp(data[0].data);
+      });
+    } else if (req.query.hasOwnProperty('id')){
+      if(req.params.name === 'words'){
+        res.send('This is not a valid endpoint');
+      } else if(req.params.name === 'images'){
+        Data.aggregate([{$unwind: '$images.images'}, {$match: {'images.images._id': new ObjectId(req.query.id)}}, {$group: {_id: '$_id', 'images': {$push: '$images'}}}, {$project: {images: '$images.images'}}], function(err, data){
+          res.jsonp(data[0]);
+        })
+      } else {
+        Data.aggregate([{$project: {data: name}}], function(err, data){
+          res.jsonp(data[0].data);
+        });
+      }
+    } else if(req.query.hasOwnProperty('category')){
+      if(req.query.hasOwnProperty('type')){
+        if(req.params.name === 'words'){
+          if(req.query.hasOwnProperty('id')){
+            res.send('This is not a valid endpoint');
+          } else {
+            Data.aggregate([{$unwind: '$words.words'}, {$match: {'words.words.category': req.query.category, 'words.words.type': req.query.type}}, {$group: {_id: '$_id', 'words': {$push: '$words'}}}, {$project: {words: '$words.words'}}], function(err, data){
+              res.jsonp(data[0]);
+            })
+          }
+        } else if(req.params.name === 'images'){
+          if(req.query.hasOwnProperty('id')){
+            Data.aggregate([{$unwind: '$images.images'}, {$match: {'images.images._id': new ObjectId(req.query.id), 'images.images.category': req.query.category, 'images.images.type': req.query.type}}, {$group: {_id: '$_id', 'images': {$push: '$images'}}}, {$project: {images: '$images.images'}}], function(err, data){
+              res.jsonp(data[0]);
+            })
+          } else {
+            Data.aggregate([{$unwind: '$images.images'}, {$match: {'images.images.category': req.query.category, 'images.images.type': req.query.type}}, {$group: {_id: '$_id', 'images': {$push: '$images'}}}, {$project: {images: '$images.images'}}], function(err, data){
+              res.jsonp(data[0]);
+            })
+          }
+        } else {
+          Data.aggregate([{$project: {data: name}}], function(err, data){
+            res.jsonp(data[0].data);
+          });
+        }
+      } else {
+        if(req.params.name === 'words'){
+          if(req.query.hasOwnProperty('id')){
+            res.send('This is not a valid endpoint');
+          } else {
+            Data.aggregate([{$unwind: '$words.words'}, {$match: {'words.words.category': req.query.category}}, {$group: {_id: '$_id', 'words': {$push: '$words'}}}, {$project: {words: '$words.words'}}], function(err, data){
+              res.jsonp(data[0]);
+            })
+          }
+        } else if(req.params.name === 'images'){
+          if(req.query.hasOwnProperty('id')){
+            Data.aggregate([{$unwind: '$images.images'}, {$match: {'images.images._id': new ObjectId(req.query.id), 'images.images.category': req.query.category}}, {$group: {_id: '$_id', 'images': {$push: '$images'}}}, {$project: {images: '$images.images'}}], function(err, data){
+              res.jsonp(data[0]);
+            })
+          } else {
+            Data.aggregate([{$unwind: '$images.images'}, {$match: {'images.images.category': req.query.category}}, {$group: {_id: '$_id', 'images': {$push: '$images'}}}, {$project: {images: '$images.images'}}], function(err, data){
+              res.jsonp(data[0]);
+            })
+          }
+        } else {
+          Data.aggregate([{$project: {data: name}}], function(err, data){
+            res.jsonp(data[0].data);
+          });
+        }
+      }
+    } else if(req.query.hasOwnProperty('type')){
+      if(req.params.name === 'words'){
+        if(req.query.hasOwnProperty('id')){
+          res.send('This is not a valid endpoint');
+        } else {
+          Data.aggregate([{$unwind: '$words.words'}, {$match: {'words.words.type': req.query.type}}, {$group: {_id: '$_id', 'words': {$push: '$words'}}}, {$project: {words: '$words.words'}}], function(err, data){
+            res.jsonp(data[0]);
+          })
+        }
+      } else if(req.params.name === 'images'){
+        if(req.query.hasOwnProperty('id')){
+          Data.aggregate([{$unwind: '$images.images'}, {$match: {'images.images._id': new ObjectId(req.query.id), 'images.images.type': req.query.type}}, {$group: {_id: '$_id', 'images': {$push: '$images'}}}, {$project: {images: '$images.images'}}], function(err, data){
+            res.jsonp(data[0]);
+          })
+        } else {
+          Data.aggregate([{$unwind: '$images.images'}, {$match: {'images.images.type': req.query.type}}, {$group: {_id: '$_id', 'images': {$push: '$images'}}}, {$project: {images: '$images.images'}}], function(err, data){
+            res.jsonp(data[0]);
+          })
+        }
+      } else {
+        Data.aggregate([{$project: {data: name}}], function(err, data){
+          res.jsonp(data[0].data);
+        });
+      }
+    } else {
+      if(req.query.hasOwnProperty('callback')){
+        Data.aggregate([{$project: {data: name}}], function(err, data){
+          res.jsonp(data[0].data);
+        });
+      } else {
+        res.send('This is an invalid endpoint');
+      }
+    }
   }
 });
 router.route('/api/:name/:subname').get(function(req, res) {
@@ -89,6 +206,11 @@ router.route('/api/:name/:subname').get(function(req, res) {
             res.jsonp(data[0]);
           })
         }
+      } else if (req.query.hasOwnProperty('callback')){
+        Data.aggregate([{$unwind: '$images.images'}, {$match: {'images.images.type': req.query.type}}, {$group: {_id: '$_id', 'images': {$push: '$images'}}}, {$project: {images: '$images.images'}}], function(err, data){
+          console.log(data[0]);
+          res.jsonp(data[0]);
+        })
       } else if(req.query.id.match(/\d/gi)){
         Data.aggregate([{$unwind: '$images.images'}, {$match: {'images.images._id': new ObjectId(req.query.id)}}, {$group: {_id: '$_id', 'images': {$push: '$images'}}}, {$project: {images: '$images.images'}}], function(err, data){
           res.jsonp(data[0]);

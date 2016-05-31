@@ -1,4 +1,4 @@
-typicalAgency.directive('navLink', function() {
+typicalAgency.directive('navLink', function($window) {
   return {
     restrict: 'E',
     scope: {

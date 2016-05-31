@@ -1,5 +1,6 @@
 typicalAgency.controller('Team', ['$scope', '$http', '$window', 'agencyName', function($scope, $http, $window, agencyName){
   $scope.agencyName = $window.sessionStorage.getItem("agencyName");
+  $scope.brandColorValue = $window.sessionStorage.getItem("brandColorValue");
   $http.get('/api/people')
   .success(function(data){
     var team = [];
