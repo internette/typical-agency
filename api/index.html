@@ -3,6 +3,7 @@
 <head>
   <link rel="stylesheet" href="../css/api-doc-styles.css" />
   <script src="../js/api-functions.js"></script>
+  <link ng-controller="Favicon" rel='shortcut icon' href='../favicons/favicon-pink.png' type='image/x-icon' />
 </head>
 <body>
   <div id="header">
@@ -19,25 +20,25 @@
             <a href="#">Intro</a>
           </li>
           <li>
-            <a href="#">Endpoints</a>
+            <a href="#endpoints">Endpoints</a>
             <ul>
               <li>
-                <a href="#">GET <span>/bios</span></a>
+                <a href="#bios">GET <span>/bios</span></a>
               </li>
               <li>
-                <a href="#">GET <span>/colors</span></a>
+                <a href="#colors">GET <span>/colors</span></a>
               </li>
               <li>
-                <a href="#">GET <span>/clients</span></a>
+                <a href="#clients">GET <span>/clients</span></a>
               </li>
               <li>
-                <a href="#">GET <span>/images</span></a>
+                <a href="#images">GET <span>/images</span></a>
               </li>
               <li>
-                <a href="#">GET <span>/people</span></a>
+                <a href="#people">GET <span>/people</span></a>
               </li>
               <li>
-                <a href="#">GET <span>/words</span></a>
+                <a href="#words">GET <span>/words</span></a>
               </li>
             </ul>
           </li>
@@ -66,22 +67,22 @@
             <p>
               The Typical.Agency REST API contains 6 main endpoints: bios, clients, images, colors, people, and words. Every API call begins with <a href="http://typical-agency.com">http://typical-agency.com</a>. Below are the endpoints and the outputs.
             </p>
-            <h4>/bios</h4>
+            <h4 id="bios">/bios</h4>
             <span class="endpoint-title"><b>Type</b>: GET</span>
             <p>
               This endpoint provides generic biographies for any company as well as a correlating image. These can be used as slogans, mottos, and simple About blurbs.
             </p>
-            <h4>/colors</h4>
+            <h4 id="colors">/colors</h4>
             <span class="endpoint-title"><b>Type</b>: GET</span>
             <p>
               This endpoint provides generic colors and their respective names. The colors chosen are all of the colors from the <a href="https://www.google.com/design/spec/style/color.html#color-color-palette" target="_blank">Google Material Design</a> scheme, including their names.
             </p>
-            <h4>/clients</h4>
+            <h4 id="clients">/clients</h4>
             <span class="endpoint-title"><b>Type</b>: GET</span>
             <p>
               This endpoint provides a diverse list of well-known companies, their logos, and their URLs. Some of the companies includes are Facebook, McDonalds, Nike.
             </p>
-            <h4>/images</h4>
+            <h4 id="images">/images</h4>
             <span class="endpoint-title"><b>Type</b>: GET</span>
             <p>
               This endpoint provides generic images of two categories: projects and backgrounds. The images come in 4 sizes in terms of their widths:
@@ -110,7 +111,7 @@
               <li>Marketing <span class="query">?category=backgrounds&type=marketing</span></li>
             </ul>
             <p> Or, if you like a particular image, you can always us the query <span class="query">?id=[ID NUMBER]</span> to retrieve only the one image.</p>
-            <h4>/people</h4>
+            <h4 id="people">/people</h4>
             <span class="endpoint-title"><b>Type</b>: GET</span>
             <p>
               This endpoint provides generic images of individuals, cropped in a "unique" way. The images come in 3 sizes:
@@ -120,7 +121,7 @@
                 <li>Small (300x300px)</li>
               </ol>
             </p>
-            <h4>/words</h4>
+            <h4 id="words">/words</h4>
             <span class="endpoint-title"><b>Type</b>: GET</span>
             <p>
               This endpoint provides three different kinds of single words that are rather generic:
